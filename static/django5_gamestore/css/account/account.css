@@ -1,0 +1,28 @@
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+@media screen and (max-width: 490px) {
+    footer {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 490px) {
+    footer {
+        display: none !important;
+    }
+}
+
+img.captcha {
+    border-radius: 10px;
+}
+
+div.form-outline {
+    display: flex;
+    justify-content: center;
+}
