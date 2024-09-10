@@ -4,7 +4,7 @@ from django.shortcuts import reverse, render
 from products.models import ParentParentCategory
 from site_module.models import SiteSetting
 
-
+# home page
 def reDirect(request):
     reDirect_link = reverse('home-page')
     return HttpResponseRedirect(reDirect_link)
