@@ -1,5 +1,9 @@
 * text=auto
 
+<<<<<<< HEAD
 # Ignore Bootstrap CSS and JS files from language stats
 *.css linguist-vendored
 *.js linguist-vendored
+=======
+static/* linguist-generated
+>>>>>>> ce56a0886807b3be73866b922e1a74401c71fe99
