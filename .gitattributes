@@ -1,42 +1,42 @@
 * text=auto
 
-*.css linguist-vendored
-*.js linguist-vendored
-*.scss linguist-vendored
-*.less linguist-vendored
+# *.css linguist-vendored
+# *.js linguist-vendored
+# *.scss linguist-vendored
+# *.less linguist-vendored
 
 # # Vendored (third-party) files
-# ./static/admin/**/*.css linguist-vendored
-# ./static/admin/**/*.js linguist-vendored
-# ./static/admin/**/*.scss linguist-vendored
-# ./static/admin/**/*.less linguist-vendored
+static/admin/**/*.css linguist-vendored
+static/admin/**/*.js linguist-vendored
+static/admin/**/*.scss linguist-vendored
+static/admin/**/*.less linguist-vendored
 
-# ./static/admin_panel/assets/**/*.css linguist-vendored
-# ./static/admin_panel/assets/**/*.js linguist-vendored
-# ./static/admin_panel/assets/**/*.scss linguist-vendored
-# ./static/admin_panel/assets/**/*.less linguist-vendored
+static/admin_panel/assets/**/*.css linguist-vendored
+static/admin_panel/assets/**/*.js linguist-vendored
+static/admin_panel/assets/**/*.scss linguist-vendored
+static/admin_panel/assets/**/*.less linguist-vendored
 
-# ./static/django5_gamestore/asset/**/*.css linguist-vendored
-# ./static/django5_gamestore/asset/**/*.js linguist-vendored
-# ./static/django5_gamestore/asset/**/*.scss linguist-vendored
-# ./static/django5_gamestore/asset/**/*.less linguist-vendored
+static/django5_gamestore/asset/**/*.css linguist-vendored
+static/django5_gamestore/asset/**/*.js linguist-vendored
+static/django5_gamestore/asset/**/*.scss linguist-vendored
+static/django5_gamestore/asset/**/*.less linguist-vendored
 
-# ./static/django5_gamestore/MM/assets/**/*.css linguist-vendored
-# ./static/django5_gamestore/MM/assets/**/*.js linguist-vendored
-# ./static/django5_gamestore/MM/assets/**/*.scss linguist-vendored
-# ./static/django5_gamestore/MM/assets/**/*.less linguist-vendored
+static/django5_gamestore/MM/assets/**/*.css linguist-vendored
+static/django5_gamestore/MM/assets/**/*.js linguist-vendored
+static/django5_gamestore/MM/assets/**/*.scss linguist-vendored
+static/django5_gamestore/MM/assets/**/*.less linguist-vendored
 
-# ./static/django5_gamestore/ChainRules/**/*.css linguist-vendored
-# ./static/django5_gamestore/ChainRules/**/*.js linguist-vendored
-# ./static/django5_gamestore/ChainRules/**/*.scss linguist-vendored
-# ./static/django5_gamestore/ChainRules/**/*.less linguist-vendored
+static/django5_gamestore/ChainRules/**/*.css linguist-vendored
+static/django5_gamestore/ChainRules/**/*.js linguist-vendored
+static/django5_gamestore/ChainRules/**/*.scss linguist-vendored
+static/django5_gamestore/ChainRules/**/*.less linguist-vendored
 
-# ./static/django5_gamestore/FirstFollow/**/*.css linguist-vendored
-# ./static/django5_gamestore/FirstFollow/**/*.js linguist-vendored
-# ./static/django5_gamestore/FirstFollow/**/*.scss linguist-vendored
-# ./static/django5_gamestore/FirstFollow/**/*.less linguist-vendored
+static/django5_gamestore/FirstFollow/**/*.css linguist-vendored
+static/django5_gamestore/FirstFollow/**/*.js linguist-vendored
+static/django5_gamestore/FirstFollow/**/*.scss linguist-vendored
+static/django5_gamestore/FirstFollow/**/*.less linguist-vendored
 
-# ./static/django5_gamestore/library/**/*.css linguist-vendored
-# ./static/django5_gamestore/library/**/*.js linguist-vendored
-# ./static/django5_gamestore/library/**/*.scss linguist-vendored
-# ./static/django5_gamestore/library/**/*.less linguist-vendored
+static/django5_gamestore/library/**/*.css linguist-vendored
+static/django5_gamestore/library/**/*.js linguist-vendored
+static/django5_gamestore/library/**/*.scss linguist-vendored
+static/django5_gamestore/library/**/*.less linguist-vendored
