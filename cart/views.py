@@ -73,7 +73,7 @@ email = 'GameStorePersia@gmail.com'  # Optional
 mobile = ''  # Optional
 # . todo : Important: edit for deployment
 site_domainsite_domain = ''
-site_domain = 'http://reza-taheri.ir'
+site_domain = 'https://reza-taheri.ir'
 
 # CallbackURL = site_domain + '/fa/cart/verify-payment/'
 # CallbackURL = 'http://reza-taheri.ir/fa/cart/verify-payment/'
