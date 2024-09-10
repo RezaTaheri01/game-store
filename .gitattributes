@@ -1,9 +1,5 @@
 * text=auto
 
-static/admin/* linguist-vendored
-static/admin_panel/assets/* linguist-vendored
-static/django5_gamestore/asset/* linguist-vendored
-static/django5_gamestore/MM/assets/* linguist-vendored
-static/django5_gamestore/ChainRules/* linguist-vendored
-static/django5_gamestore/FirstFollow/* linguist-vendored
-static/django5_gamestore/library/* linguist-vendored
+# Ignore Bootstrap CSS and JS files from language stats
+*.css linguist-vendored
+*.js linguist-vendored
