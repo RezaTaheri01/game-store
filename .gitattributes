@@ -11,20 +11,20 @@ static/admin/**/*.js linguist-vendored
 static/admin/**/*.scss linguist-vendored
 static/admin/**/*.less linguist-vendored
 
-static/admin_panel/assets/**/*.css linguist-vendored
-static/admin_panel/assets/**/*.js linguist-vendored
-static/admin_panel/assets/**/*.scss linguist-vendored
-static/admin_panel/assets/**/*.less linguist-vendored
+static/admin_panel/**/*.css linguist-vendored
+static/admin_panel/**/*.js linguist-vendored
+static/admin_panel/**/*.scss linguist-vendored
+static/admin_panel/**/*.less linguist-vendored
 
 static/django5_gamestore/asset/**/*.css linguist-vendored
 static/django5_gamestore/asset/**/*.js linguist-vendored
 static/django5_gamestore/asset/**/*.scss linguist-vendored
 static/django5_gamestore/asset/**/*.less linguist-vendored
 
-static/django5_gamestore/MM/assets/**/*.css linguist-vendored
-static/django5_gamestore/MM/assets/**/*.js linguist-vendored
-static/django5_gamestore/MM/assets/**/*.scss linguist-vendored
-static/django5_gamestore/MM/assets/**/*.less linguist-vendored
+static/django5_gamestore/MM/**/*.css linguist-vendored
+static/django5_gamestore/MM/**/*.js linguist-vendored
+static/django5_gamestore/MM/**/*.scss linguist-vendored
+static/django5_gamestore/MM/**/*.less linguist-vendored
 
 static/django5_gamestore/ChainRules/**/*.css linguist-vendored
 static/django5_gamestore/ChainRules/**/*.js linguist-vendored
