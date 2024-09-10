@@ -47,6 +47,7 @@ class HomeView(TemplateView):
         context['current_page'] = _('home')
 
         # ----------------------------------------------------------------
+        
         main_list = []
 
         slides = SlideShow.objects.filter(is_active=True, is_delete=False)  # query
