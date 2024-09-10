@@ -35,7 +35,7 @@ This repository hosts the source code for [reza-taheri.ir](https://reza-taheri.i
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/game-store.git
+git clone https://github.com/RezaTaheri01/game-store.git
 cd game-store
 ```
 
