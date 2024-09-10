@@ -1,0 +1,44 @@
+{% extends 'admin_panel/shared/admin_layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Add Product
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-top bordered-warning">
+                    <span class="widget-caption">New Product</span>
+                </div>
+                <div class="widget-body">
+                    <div class="">
+                        <form action="{% url 'admin_add_product' %}" method="post"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <label for="id_{{ field.name }}">{{ field.label }}</label>
+                                    {% render_field field class='form-control w-50' %}
+                                    <div>
+                                        <ul>
+                                            {% for error in field.errors %}
+                                                <li class="text-danger">{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-success btn-block">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

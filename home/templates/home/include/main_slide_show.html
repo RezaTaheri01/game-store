@@ -1,0 +1,43 @@
+{% load i18n %}
+{% if products %}
+    {% load thumbnail %}
+    <div id="slide-show">
+        {# background img #}
+        {% for product in products %}
+            {% thumbnail product.image_bg "2500x1050" crop='center' as image_bg %}
+                <img src="{{ image_bg.url }}" class="bg_mySlides position-absolute" {# url at the end of address #}
+                     alt="{{ product.title }}" id="">
+            {% endthumbnail %}
+        {% endfor %}
+        <div class="container-fluid d-flex justify-content-center position-relative top-slideshow">
+            {#    main img    #}
+            {% for product in products %}
+            {% now "Y-m-d" as today_date %}
+                <div class="position-absolute detail-slideshow text-center">
+                    <h3 class="text-muted">{{ product.title }} 
+                        {% if product.inventory == 0 %}
+                        <span class="fw-light fs-5">{% trans 'Sold Out' %}</span>
+                        {% elif product.releaseDate|date:"Y-m-d" > today_date %}
+                        <span class="fw-light fs-5">{% trans 'Pre Order' %}</span>
+                        {% endif %}
+                    </h3>
+                </div>
+                <a href="{{ product.get_absolute_url }}" class="d-flex justify-content-center">
+                    {% thumbnail product.image "2500x1400" crop='center' as image %}
+                        <img src="{{ image.url }}" class="mySlides rounded-md-5 position-absolute"
+                             alt="{{ product.title }}" id="">
+                    {% endthumbnail %}
+                </a>
+            {% endfor %}
+            {#    next/prev/dot    #}
+            <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" dir="ltr">
+                <div class="w3-left w3-hover-text-khaki px-3" onclick="plusDivs(-1)">&#10094;</div>
+                <div class="w3-right w3-hover-text-khaki px-3" onclick="plusDivs(1)">&#10095;</div>
+                {% for num in numbers %}
+                    <span class="w3-badge main_slide_dot w3-border w3-transparent w3-hover-white"
+                          onclick="currentDiv({{ num }})"></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

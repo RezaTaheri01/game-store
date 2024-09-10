@@ -1,0 +1,41 @@
+{% load static %}
+{% load thumbnail %}
+{% load i18n %}
+{#python manage.py thumbnail cleanup#}
+{#python manage.py thumbnail clear#}
+
+<div class="card text-center col-12 col-sm-10 col-md-5 col-lg-3 mx-3 me-md-2 my-3 my-md-4" id="outer">
+    {% if product.price == 0 %}
+        <p id="pre-order" class="position-absolute rounded-2 p-1">{% trans 'Free-To-Play' %}</p>
+    {% elif product.inventory == 0 %}
+        <h6 id="pre-order" class="position-absolute rounded-2 p-1 fw-light fs-6">{% trans 'Sold Out' %}</h6>
+    {% elif product.discount > 0 and pre == 'True' %}
+        <p id="pre-order" class="position-absolute rounded-2 p-1">{% trans 'Pre-order' %} <br> <small
+                class="fw-light">{{ product.discount }}%
+            {% trans 'Discount' %}</small></p>
+
+    {% elif product.discount > 0 %}
+        <p id="pre-order" class="position-absolute rounded-2 p-1">{{ product.discount }}% {% trans 'Discount' %}</p>
+
+    {% elif pre == 'True' %}
+        <p id="pre-order" class="position-absolute rounded-2 p-1">{% trans 'Pre-order' %}</p>
+    {% endif %}
+
+    <a href="{{ product.get_absolute_url }}"> {# attention! #}
+        <div class="img-div rounded-2">
+            {% if product.image %}
+                {% thumbnail product.image "820x410" crop='center' as image %}
+                    <img src="{{ image.url }}" class="card-img-top"
+                         alt="{{ product.title }}" loading="lazy">
+                {% endthumbnail %}
+            {% endif %}
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title fw-bold">{{ product.title }}</h5>
+            <hr>
+            <p class="card-text">{{ product.short_description }}</p>
+        </div>
+
+    </a>
+</div>

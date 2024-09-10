@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/account/account.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="{% static 'django5_gamestore/Images/account/unlock.svg' %}"
+                         class="img-fluid" alt="Phone image">
+                </div>
+
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <form method="post" action="{{ action }}" enctype="multipart/form-data">
+                        {# for files need enctype #}
+                        {% csrf_token %} {# unique token generator !? needed to send data for security #}
+                        {% for form in forms %}
+                            <div class="form-outline mb-4">
+                                {{ form }}
+                            </div>
+                            <div class="text-light-emphasis fs-6 fw-lighter">
+                                <h5>{{ form.errors }}</h5>
+                            </div>
+                        {% endfor %}
+
+                        <div class="d-flex justify-content-around align-items-center mb-4">
+                            <!-- Checkbox -->
+                            {% if forget_password %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form1Example3"
+                                           checked/>
+                                    <label class="form-check-label"
+                                           for="form1Example3"> {% trans 'Remember me' %} </label>
+                                </div>
+                            {% endif %}
+                            {% if forget_password %}
+                                <a href="{% url 'forget_password_page' %}" class="text-decoration-none">
+                                    {% trans 'Forget Password' %}
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit"
+                                class="btn btn-primary btn-lg btn-block d-flex m-auto">{{ button_title }}</button>
+
+                        {#                        <div class="divider d-flex align-items-center my-4">#}
+                        {#                            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>#}
+                        {#                        </div>#}
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

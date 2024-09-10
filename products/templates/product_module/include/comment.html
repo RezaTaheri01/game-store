@@ -1,0 +1,98 @@
+{% load poll_extras %}
+{% load thumbnail %}
+{% load i18n %}
+
+<div class="container mb-2 mt-5 col-md-6" id="comment-section" dir="ltr">
+    <h2 class="fw-lighter">{% trans 'Comments' %} ({{ comments_count }})</h2>
+
+    {#new comment field#}
+    {% if request.user.is_authenticated %}
+        <div class="reply-form-main mt-3 d-flex align-items-end justify-content-center">
+            <div class="form-group col-md-10 col-10 me-2">
+                <label for="comment-text"></label>
+                <textarea class="form-control opacity-75" rows="1" cols="15"
+                          placeholder="{% trans 'Write your comment' %}" id="comment-text"></textarea>
+            </div>
+            <a class="btn btn-primary py-2 fw-lighter"
+               onclick="sendProductComment({{ product.id }},this)">{% trans 'Send' %}</a>
+        </div>
+    {% else %}
+        <h6 class="alert alert-warning text-center mt-2"><a href="{% url 'sign_in_page' %}"
+                                                            class="text-decoration-none"
+                                                            target="_blank">{% trans 'Sign in' %}</a>
+            {% trans 'first to write comment' %}</h6>
+    {% endif %}
+    {# end new comment field #}
+
+    {% for comment in comments %}
+        <div class="media mt-4 d-md-flex justify-content-center">
+            <div class="media-body col-md-12">
+                <button class="btn show-replies-button float-end fw-light fs-6"
+                        onclick="toggleContent(this)">{% trans 'Reply' %}
+                </button>
+                <div class="d-flex align-items-center mb-3">
+                    {% thumbnail comment.user.profile_image "300x300" crop='center' as profile_image %}
+                        <img class="me-3 rounded-circle user-avatar" src="{{ profile_image.url }}"
+                             alt="User Avatar">
+                    {% endthumbnail %}
+                    {% if comment.user is None %}
+                        <h5 class="mt-0">{% trans 'Delete Account' %}</h5>
+                    {% else %}
+                        <h5 class="mt-0">{{ comment.user }}</h5>
+                    {% endif %}
+                    {% if '/fa/' in request.path %}
+                        <small class="ms-2 fw-light">{{ comment.create_date|jalali_date_custom }}</small>
+                    {% else %}
+                        <small class="ms-2 fw-light">{{ comment.create_date|date }}</small>
+                    {% endif %}
+                </div>
+                <p class="ms-3">{{ comment.comment }}</p>
+                {% if request.user.is_authenticated %}
+                    <div class="reply-form mt-3 ms-5">
+                        <div class="d-flex align-items-end">
+                            <div class="form-group col-10 me-2">
+                                <label for="reply-text"></label>
+                                <textarea class="form-control reply opacity-75" rows="1" cols="15"
+                                          placeholder="{% trans 'Reply to this comment' %}" id="reply-text"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-success"
+                                    onclick="sendReply(this,{{ comment.id }},{{ product.id }})">{% trans 'Reply' %}
+                            </button>
+                        </div>
+                    </div>
+                {% endif %}
+                {% for sub_comment in comment.sub_comment.all %} {# better way #}
+                    {% if sub_comment.confirm_by_admin %}
+                        {#                    {% if sub_comment.parent == comment %}#}
+                        <div class="replies mt-3 ms-5">
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        {% thumbnail sub_comment.user.profile_image "300x300" crop='center' as profile_image %}
+                                            <img class="me-3 rounded-circle user-avatar"
+                                                 src="{{ profile_image.url }}"
+                                                 alt="User Avatar">
+                                        {% endthumbnail %}
+                                        {% if sub_comment.user is None %}
+                                            <h5 class="mt-0">{% trans 'Delete Account' %}</h5>
+                                        {% else %}
+                                            <h5 class="mt-0">{{ sub_comment.user }}</h5>
+                                        {% endif %}
+                                        {% if '/fa/' in request.path %}
+                                            <small class="ms-2 fw-light">{{ sub_comment.create_date|jalali_date_custom }}</small>
+                                        {% else %}
+                                            <small class="ms-2 fw-light">{{ sub_comment.create_date|date }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <p class="ms-3">{{ sub_comment.comment }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {#                    {% endif %}#}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+</div>

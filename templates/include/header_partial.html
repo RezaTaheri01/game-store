@@ -1,0 +1,70 @@
+{% load i18n %}
+<header>
+    <div class="" id="header-fix">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg py-0" id="main-navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler border-0 close" type="button" data-bs-toggle="collapse" id="navbar-btn"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" onclick="rotate_menu_icon(this)"
+                        value="close">
+                    <i class="fa fa-bars" id="menu_logo"></i>
+                </button>
+                <a class="navbar-brand" href="{% url 'home-page' %}" id="navbar_logo">
+                    <img src="{% if site_setting.site_logo %}{{ site_setting.site_logo.url }}{% endif %}" alt="logo"
+                         class=""></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-md-auto p-0 mb-2 mt-3 mt-lg-0 mb-lg-0" id="navbar-header">
+                        <li class="nav-item">
+                            <a class="nav-link rounded-3 {% if request.resolver_match.url_name == 'home-page' %}active{% endif %}"
+                               aria-current="page" href="{% url 'home-page' %}">
+                                {% trans 'Home' %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link 1dropdown-toggle rounded-3 {% if 'products_page' in request.resolver_match.url_name %}active{% endif %}"
+                               href="{% url 'products_page' base='all' slug='order-by' %}">
+                                {% trans 'Products' %}
+                            </a>
+                        </li>
+                        {# category #}
+                        {% include 'include/header/category_header.html' %}
+
+                        {#Profile#}
+                        {% include 'include/header/profile_header.html' %}
+                        {# serach navbar #}
+                        {# end serach navbar #}
+                        <i class="nav-item" id="search-navbar">
+                            <form action="/products/search-products/" method="get" class="form-inline">
+                                <div class="d-flex">
+                                    <input class="form-control mr-sm-2 rounded-top-0 rounded-end-0" type="search"
+                                           name="search" onfocus="apperRes(this)" onfocusout="disappearRes(this)"
+                                           onkeyup="waitForSearchInput()" placeholder="{% trans 'Search here ...' %}"
+                                           aria-label=" Search" id="search-input" autocomplete="off">
+                                    <input type="hidden" name="url" value="{{ request.path }}">
+                                    <button class="btn btn-success rounded-top-0 rounded-start-0" type="submit"
+                                            onclick="">{% trans 'Go' %}
+                                    </button>
+                                </div>
+                                {#<p>{{ request.get_full_path }}</p>#}
+                                <ul class="dropdown dropdown-menu position-absolute" id="search-dynamic-result">
+                                </ul>
+                            </form>
+                        </i>
+                    </ul>
+                    {#                <!-- start dark mode switch button -->#}
+                    <div class="form-check form-switch d-flex align-items-center ms-4 p-0 ps-md-5 ms-md-0 me-md-0"
+                         id="dark-mode-switch">
+                        <input class="form-check-input px-3 py-3 bg-dark-subtle border-secondary-subtle d-none"
+                               type="checkbox"
+                               role="switch" id="modeSwitch" onclick="click_dark_light(this.checked)">
+                        <label class="form-check-label" for="modeSwitch"><i class="fa fa-moon fa-lg mt-1 mx-2"
+                                                                            id="moon"></i></label>
+                        {#       ass="text-decoration-none"><i class="fa-2 fa fa-sun" id="moon"></i></a>#}
+                    </div>
+                    <!-- end dark mode switch button -->
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

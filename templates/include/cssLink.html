@@ -1,0 +1,14 @@
+{% load static %}
+{% load i18n %} {# for multilanguages #}
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'fa-ir' %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/asset/bootstrap/dist/css/bootstrap.rtl.min.css' %}"
+          type="text/css">
+{% else %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/asset/bootstrap/dist/css/bootstrap.min.css' %}"
+          type="text/css">
+{% endif %}
+<link rel="stylesheet" href="{% static 'django5_gamestore/asset/fontawesome 6.4.0/css/all.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'django5_gamestore/css/layout.css' %}" type="text/css">
+{#<link rel="icon" href="{% static 'django5_gamestore/Images/icon/favicon.ico' %}">#}
+

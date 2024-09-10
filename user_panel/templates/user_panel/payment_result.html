@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center align-items-center" style="color: white">
+        {% if success %}
+            <div class="alert alert-success">{% trans 'payment is successful. Tracking Code is:' %} {{ success }}</div>
+        {% elif info %}
+            <div class="alert alert-info">{{ info }}</div>
+        {% elif error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endblock %}

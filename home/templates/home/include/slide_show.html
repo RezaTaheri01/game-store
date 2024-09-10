@@ -1,0 +1,54 @@
+{% load i18n %}
+{% if slide_show_all %}
+    {% now "Y-m-d" as today_date %}
+    {% load thumbnail %}
+    {% load poll_extras %}
+    {# gallery slide show #}
+    {% for slide in slide_show_all %}
+        {% for list in slide %}
+            {% if forloop.counter0 == 0 %}
+            {% elif forloop.counter0 == 1 %}
+                {#                <div class="slide-container swiper pt-0">#}
+                <div class="slide-container swiper pt-0">
+                    <div class="slide-content swiper-{{ list.counter }}">
+                        {# <P>{{ forloop.counter }}</P> #}
+                        <a href="{% url 'products_page' base='slide-category' slug=list.id %}"
+                           class="text-decoration-none text-dark-emphasis">
+                            <h2 class="fw-lighter text-secondary-emphasis mb-3">{{ list.title|title }}</h2>
+                        </a>
+                        <div class="card-wrapper swiper-wrapper">
+                            {% elif forloop.counter0 == 2 %}
+                            {% for product in list.products %}
+                                {#                            it's not good to query in template !#}
+                                <div class="card swiper-slide border-0">
+                                    {% include 'home/include/slide_show_product.html' with product=product count=forloop.counter0 %}
+                                </div>
+                            {% endfor %}
+                            {#show all card#}
+                            <div class="card swiper-slide border-0 opacity-75">
+                                <div class="image-content py-0">
+                                    <a href="{% url 'products_page' base='slide-category' slug=list.id %}">
+                                        <div class="card-content position-absolute start-0">
+                                            <h3 class="fw-light bg-dark px-3 py-2 rounded-2 opacity-75">{% trans 'More' %}</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            {#end show all card#}
+                        </div>
+                    </div>
+                    {% elif forloop.counter0 == 3 %}
+                    {% if '/fa/' in request.path %}
+                        <div class="swiper-button-prev-{{ list }} swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-next-{{ list }} swiper-button-prev swiper-navBtn"></div>
+                    {% else %}
+                        <div class="swiper-button-next-{{ list }} swiper-button-next swiper-navBtn"></div>
+                        <div class="swiper-button-prev-{{ list }} swiper-button-prev swiper-navBtn"></div>
+                    {% endif %}
+                    <div class="swiper-pagination-{{ list }} swiper-pagination"></div>
+                </div>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}

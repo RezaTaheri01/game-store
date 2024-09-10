@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ title|title }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/products.css' %}">
+{% endblock %}
+
+{% block body %}
+    <hr class="my-sm-5 hr">
+    {% if filter_bar %}
+        {#    price range   #}
+        {% include "product_module/include/filter.html" %}
+        {# Simple Filter #}
+        <div class="filter-link d-flex justify-content-center" id="order-field">
+            <a onclick="active(this)"
+               class="text-decoration-none mx-1  p-2 text-secondary-emphasis rounded-2 opacity-75 filter
+            {% if order == 'releaseDate' or order == 'تاریخ عرضه' %}text-info-emphasis{% endif %}">{% trans 'releaseDate' %}</a>
+            <a onclick="active(this)"
+               class="text-decoration-none mx-1  p-2 text-secondary-emphasis rounded-2 opacity-75 filter
+            {% if order == 'discount' or order == 'تخفیف' %}text-info-emphasis{% endif %}">{% trans 'discount' %}</a>
+            <a onclick="active(this)"
+               class="text-decoration-none mx-1 p-2 text-secondary-emphasis rounded-2 opacity-75 filter
+            {% if order == 'price' or order == 'قیمت' %}text-info-emphasis{% endif %}">{% trans 'price' %}</a>
+        </div>
+        {# end Simple Filter #}
+    {% else %}
+        <form method="get" id="filter-form" hidden='hidden'>
+            <input type="hidden" name="page" value="1" id="page">
+        </form>
+    {% endif %}
+
+    {# Products #}
+    <div class="d-flex flex-wrap justify-content-center cards">
+        {% for product in products %} {# when use ListView #}
+            {% now "Y-m-d" as today_date %}
+            {% if product.releaseDate|date:"Y-m-d" > today_date %}
+                {% include 'product_module/include/card.html' with pre='True' %}
+            {% else %}
+                {% include 'product_module/include/card.html' with pre='False' %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {# end Products #}
+
+    {# Pagination #}
+    <div class="d-flex justify-content-around me-4">
+        <ul class="d-flex align-items-center" id="paginator">
+            {% if page_obj.has_previous %}
+                <li class=" mx-2 fs-6 rounded-2 bg-transparent">
+                    <a class="text-decoration-none text-white"
+                       onclick="fillPage({{ page_obj.previous_page_number }})">{% trans 'prev' %}</a>
+                </li>
+            {% endif %}
+
+            {% if is_paginated %}
+                {% for page_number in paginator.page_range %}
+                    <li class=" mx-2 fs-6 rounded-2 {% if page_obj.number == page_number %} active {% endif %}">
+                        <a class="text-decoration-none text-white"
+                           onclick="fillPage({{ page_number }})">{{ page_number }}</a></li>
+                {% endfor %}
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <li class=" mx-2 fs-6 rounded-2 bg-transparent">
+                    <a class="text-decoration-none text-white"
+                       onclick="fillPage({{ page_obj.next_page_number }})">{% trans 'next' %}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    {# end Pagination #}
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        {% if farsi and '/fa/' not in request.path%}
+            let url = window.location.href
+            let count = 0
+            let new_url = ''
+
+            for (let i = 0; i < url.length; i++) {
+                if (url[i] === '/') {
+                    count++
+                }
+                if (url[i] === '/' && count === 3) {
+                    new_url += url[i] + 'fa/'
+                } else {
+                    new_url += url[i]
+                }
+            }
+            window.location.replace(new_url)
+        {% endif %}
+    </script>
+{% endblock %}

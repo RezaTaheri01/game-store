@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First & Follow</title>
+    <link rel="stylesheet" href="{% static "django5_gamestore/MM/assets/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "django5_gamestore/FirstFollow/css/style.css" %}">
+</head>
+
+<body>
+    <header class="pt-2">
+        <h1 class="text-center fw-bold">First & Follow</h1>
+    </header>
+
+    <hr class="my-4">
+
+    <main class="container-fluid">
+
+        <!-- get grammar -->
+        <form action="" id="grammar-form" class="d-flex justify-content-center">
+            <div>
+                <!-- symbol buttons -->
+                <button class="btn btn-success" onclick="addToText(this)" type="button" value="→">→</button>
+                <button class="btn btn-success" onclick="addToText(this)" type="button" value="|">|</button>
+                <button class="btn btn-success" onclick="addToText(this)" type="button" value="λ">λ(ε)</button>
+                <!-- end symbol buttons -->
+
+                <!-- delete char button -->
+                <!-- <button class="btn btn-danger float-end" onclick="deleteChar()" type="button">c</button> -->
+
+                <textarea name="grammar" id="grammar-text-area" cols="25" rows="4"
+                    class="form-text fs-3 d-block rounded fw-light"
+                    placeholder="S → AB | λ&#10;A → Aa | b&#10;B → ab | λ" spellcheck="false" onkeyup="changeToSymbol(this)">
+            </textarea>
+                <button type="button" class="btn btn-success w-100 mt-1" onclick="main()" id="check-btn">Check</button>
+            </div>
+        </form>
+
+        <!-- show result -->
+        <div class="d-flex justify-content-between mt-3 flex-wrap" id="result">
+            <div class="first-div">
+                <p class="fs-1 fw-lighter text-start" id="first"></p>
+            </div>
+            <div class="">
+                <p class="fs-1 fw-lighter text-start" id="follow"></p>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+<script src="{% static "django5_gamestore/MM/assets/jquery.min.js" %}"></script>
+<script src="{% static "django5_gamestore/MM/assets/sweetalert2@11.js" %}"></script>
+<script src="{% static "django5_gamestore/MM/assets/bootstrap.min.js" %}"></script>
+<script src="{% static "django5_gamestore/FirstFollow/js/script.js" %}"></script>
+
+</html>

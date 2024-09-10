@@ -1,0 +1,898 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-13 13:17+0330\n"
+"PO-Revision-Date: 2024-06-13 13:20+0000\n"
+"Last-Translator: Reza Taheri <rezataheri080@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\account\apps.py:8
+msgid "Accounts"
+msgstr "اکانت ها"
+
+#: .\account\forms.py:14
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\account\forms.py:24 .\account\forms.py:96 .\account\forms.py:146
+#: .\user_panel\templates\user_panel\profile.html:70
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\account\forms.py:34 .\account\forms.py:80 .\account\forms.py:112
+msgid "Password"
+msgstr "رمز عبور"
+
+#: .\account\forms.py:44 .\account\forms.py:122 .\user_panel\forms.py:84
+msgid "Confirm Password"
+msgstr "تایید رمز عبور"
+
+#: .\account\forms.py:63 .\account\forms.py:139 .\user_panel\forms.py:98
+msgid "password not match"
+msgstr "رمز عبور مطابقت ندارد"
+
+#: .\account\forms.py:70
+msgid "Email/Username"
+msgstr "ایمیل/نام کاربری"
+
+#: .\account\models.py:10
+msgid "email address"
+msgstr "ایمیل"
+
+#: .\account\models.py:12 .\products\models.py:16 .\products\models.py:31
+#: .\products\models.py:46 .\products\models.py:71 .\site_module\models.py:111
+msgid "active"
+msgstr "فعال"
+
+#: .\account\models.py:15
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+"مشخص می کند که آیا این کاربر باید به عنوان فعال در نظر گرفته شود. به جای حذف"
+" حساب‌ها، این مورد را لغو انتخاب کنید."
+
+#: .\account\models.py:19
+msgid "about user"
+msgstr "درباره کاربر"
+
+#: .\account\models.py:20
+msgid "area code"
+msgstr "کد منطقه"
+
+#: .\account\models.py:21
+msgid "Phone Number"
+msgstr "شماره تلفن همراه"
+
+#: .\account\models.py:22
+msgid "Telephone Number"
+msgstr "شماره تلفن ثابت"
+
+#: .\account\models.py:23
+msgid "Active Code"
+msgstr "کد فعالسازی"
+
+#: .\account\models.py:25 .\user_panel\forms.py:33 .\user_panel\forms.py:51
+#: .\user_panel\templates\user_panel\profile.html:74
+msgid "Address"
+msgstr "آدرس"
+
+#: .\account\models.py:26
+msgid "Profile Picture"
+msgstr " عکس پروفایل"
+
+#: .\account\models.py:30 .\templates\include\header\profile_header.html:26
+msgid "User"
+msgstr "کاربر"
+
+#: .\account\models.py:31
+msgid "Users"
+msgstr "کاربران"
+
+#: .\account\templates\account\account.html:41
+msgid "Remember me"
+msgstr "مرا به خاطر بسپار"
+
+#: .\account\templates\account\account.html:46 .\account\views.py:197
+#: .\account\views.py:220
+msgid "Forget Password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\views.py:24 .\account\views.py:25 .\account\views.py:66
+#: .\account\views.py:67 .\templates\include\header\profile_header.html:43
+msgid "Register"
+msgstr "ثبت نام"
+
+#: .\account\views.py:46
+msgid "email repetitive"
+msgstr "ایمیل تکراری می باشد"
+
+#: .\account\views.py:48
+msgid "username repetitive"
+msgstr "نام کاربری تکراری می باشد"
+
+#: .\account\views.py:59 .\account\views.py:152 .\user_panel\views.py:272
+#: .\user_panel\views.py:309 .\user_panel\views.py:327
+msgid "Active Account"
+msgstr "فعالسازی اکانت"
+
+#: .\account\views.py:81 .\account\views.py:83 .\account\views.py:121
+#: .\account\views.py:123 .\templates\include\header\profile_header.html:47
+msgid "Sign In"
+msgstr "ورود"
+
+#: .\account\views.py:114
+msgid "account is not activated"
+msgstr "لطفا از طریق ایمیل اکانت را فعال کنید"
+
+#: .\account\views.py:116 .\account\views.py:118
+msgid "username/email/password incorrect"
+msgstr "نام کاربری/ایمیل/رمز عبور اشتباه است"
+
+#: .\account\views.py:136 .\account\views.py:162
+#| msgid "account is not activated"
+msgid "Account Activation"
+msgstr "فعالسازی اکانت"
+
+#: .\account\views.py:138 .\account\views.py:164
+#: .\products\templates\product_module\include\filter.html:23
+msgid "Submit"
+msgstr "تایید"
+
+#: .\account\views.py:157
+#| msgid "please enter your name"
+msgid "please check your email"
+msgstr "لطفا ایمیل خود را  چک کنید"
+
+#: .\account\views.py:159
+msgid "already activated or not exist"
+msgstr "پیش از این فعال شده یا وجود ندارد"
+
+#: .\account\views.py:198 .\account\views.py:221 .\account\views.py:237
+#: .\account\views.py:260 .\contact\templates\contact\contact_us.html:47
+#: .\products\templates\product_module\include\comment.html:17
+#: .\products\templates\product_module\include\product_comment_partial.html:13
+#: .\user_panel\views.py:96 .\user_panel\views.py:122
+msgid "Send"
+msgstr "ارسال"
+
+#: .\account\views.py:210 .\account\views.py:236 .\account\views.py:259
+#: .\user_panel\views.py:95 .\user_panel\views.py:121
+msgid "Reset Password"
+msgstr "ریست کردن رمز عبور"
+
+#: .\account\views.py:214
+msgid "reset link send to your email"
+msgstr "لینک ریست کردن رمز عبور به ایمیل شما ارسال شد"
+
+#: .\account\views.py:217 .\account\views.py:256 .\user_panel\views.py:118
+msgid "not founded"
+msgstr "پیدا نشد"
+
+#: .\cart\apps.py:8
+msgid "Carts"
+msgstr "سبد های خرید"
+
+#: .\cart\models.py:10
+msgid "user"
+msgstr "کاربر"
+
+#: .\cart\models.py:11
+msgid "paid"
+msgstr "پرداخت شده"
+
+#: .\cart\models.py:12
+msgid "payment date"
+msgstr "تاریخ ثبت"
+
+#: .\cart\models.py:13
+msgid "payment code"
+msgstr "اولین نفر باشید"
+
+#: .\cart\models.py:33
+msgid "user cart"
+msgstr "ای پی کاربر"
+
+#: .\cart\models.py:34
+msgid "users cart"
+msgstr "سبد خرید کاربر"
+
+#: .\cart\models.py:38 .\products\models.py:101 .\products\models.py:106
+#: .\products\models.py:123 .\products\models.py:133
+msgid "product"
+msgstr "محصولات"
+
+#: .\cart\models.py:39
+msgid "user_cart"
+msgstr "نام کاربری"
+
+#: .\cart\models.py:41
+msgid "final price"
+msgstr "قیمت"
+
+#: .\cart\models.py:42
+msgid "product count"
+msgstr "کامنت خود را بنویسید"
+
+#: .\cart\models.py:56
+msgid "cart product"
+msgstr "محصولات"
+
+#: .\cart\models.py:57
+msgid "carts products"
+msgstr "محصولات"
+
+#: .\cart\views.py:31
+msgid "Count not valid :("
+msgstr "تعداد معتبر نیست"
+
+#: .\cart\views.py:48
+msgid "Not enough Product :("
+msgstr "موجودی کافی نمی باشد"
+
+#: .\cart\views.py:58
+msgid "Product successfully added :)"
+msgstr "محصول با موفقیت اضافه شد"
+
+#: .\cart\views.py:60
+msgid "Product not found :("
+msgstr "محصول پیدا نشد"
+
+#: .\cart\views.py:62
+msgid "Please sign in first"
+msgstr "لطفا ابتدا وارد شوید"
+
+#: .\cart\views.py:144
+msgid "this payment already done (Repetitive)"
+msgstr "این پرداخت قبلا انجام شده است"
+
+#: .\cart\views.py:162
+msgid "sth went wrong / user cancel payment"
+msgstr "مشکلی پیش آمده / کاربر از خرید منصرف شد"
+
+#: .\contact\admin.py:27
+msgid "reply to your message"
+msgstr "پاسخ به پیام شما"
+
+#: .\contact\apps.py:8
+msgid "Contact Us"
+msgstr "ارتباط با ما"
+
+#: .\contact\forms.py:14 .\contact\models.py:7
+msgid "name"
+msgstr "نام"
+
+#: .\contact\forms.py:18 .\contact\models.py:8 .\site_module\models.py:47
+#: .\user_panel\forms.py:25
+msgid "email"
+msgstr "ایمیل"
+
+#: .\contact\forms.py:22
+msgid "subject"
+msgstr "عنوان"
+
+#: .\contact\forms.py:26 .\contact\models.py:10
+msgid "message"
+msgstr "پیام"
+
+#: .\contact\forms.py:30 .\user_panel\forms.py:38
+msgid "uploads"
+msgstr "آپلود"
+
+#: .\contact\forms.py:41 .\user_panel\forms.py:55
+msgid "please enter your name"
+msgstr "لطفا نام خود را وارد کنید"
+
+#: .\contact\models.py:9 .\site_module\models.py:103
+msgid "title"
+msgstr "عنوان"
+
+#: .\contact\models.py:11
+msgid "send date"
+msgstr "تاریخ ثبت"
+
+#: .\contact\models.py:12 .\templates\email\response.html:7
+msgid "answer"
+msgstr "پاسخ"
+
+#: .\contact\models.py:13
+msgid "read by admin"
+msgstr "تایید توسط ادمین"
+
+#: .\contact\models.py:18 .\contact\models.py:19
+msgid "contact us list"
+msgstr "لیست ارتباطات"
+
+#: .\contact\templates\contact\contact_us.html:19
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: .\home\templates\home\include\main_slide_show.html:19
+#: .\home\templates\home\include\slide_show_product.html:17
+#: .\products\templates\product_module\include\card.html:11
+msgid "Sold Out"
+msgstr "اتمام موجودی"
+
+#: .\home\templates\home\include\main_slide_show.html:21
+#: .\home\templates\home\include\slide_show_product.html:24
+msgid "Pre Order"
+msgstr "پیش خرید"
+
+#: .\home\templates\home\include\slide_show.html:32
+#: .\products\templates\product_module\include\single_card.html:51
+msgid "More"
+msgstr "بیشتر"
+
+#: .\home\templates\home\include\slide_show_product.html:20
+#: .\products\templates\product_module\include\card.html:15
+#: .\products\templates\product_module\include\card.html:18
+msgid "Discount"
+msgstr "تخفیف"
+
+#: .\home\views.py:47
+msgid "home"
+msgstr "خانه"
+
+#: .\products\apps.py:8 .\products\views.py:112
+#: .\templates\include\header_partial.html:27
+msgid "Products"
+msgstr "محصولات"
+
+#: .\products\models.py:14 .\products\models.py:29 .\products\models.py:44
+msgid "category title"
+msgstr "عنوان دسته بندی"
+
+#: .\products\models.py:15 .\products\models.py:30 .\products\models.py:45
+#: .\products\models.py:68 .\templates\email\activate_account.html:8
+#: .\templates\email\reset_password.html:8
+msgid "link"
+msgstr "لینک"
+
+#: .\products\models.py:17 .\products\models.py:32 .\products\models.py:47
+#: .\products\models.py:72
+msgid "deleted"
+msgstr "حذف شده"
+
+#: .\products\models.py:23
+msgid "grand parent category"
+msgstr "دسته بندی مادربزرگ"
+
+#: .\products\models.py:24
+msgid "grand parents categories"
+msgstr "دسته بندی های مادربزرگ"
+
+#: .\products\models.py:28 .\products\models.py:38 .\products\models.py:43
+#: .\site_module\models.py:104
+msgid "parent category"
+msgstr "دسته بندی"
+
+#: .\products\models.py:39
+msgid "parent categories"
+msgstr "درسته بندی مادر"
+
+#: .\products\models.py:53
+msgid "product category"
+msgstr "دسته بندی محصول"
+
+#: .\products\models.py:54
+msgid "product categories"
+msgstr "دسته بندی های محصول"
+
+#: .\products\models.py:58
+msgid "product title"
+msgstr "عنوان محصول"
+
+#: .\products\models.py:59
+msgid "product image"
+msgstr "عکس محصول"
+
+#: .\products\models.py:60
+msgid "product bg image"
+msgstr "عکس پس زمینه محصول"
+
+#: .\products\models.py:61 .\site_module\models.py:106
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\products\models.py:62
+#: .\products\templates\product_module\products.html:26
+msgid "price"
+msgstr "قیمت"
+
+#: .\products\models.py:64
+msgid "inventory"
+msgstr "موجودی"
+
+#: .\products\models.py:65
+msgid "short description"
+msgstr "توضیحات کوتاه"
+
+#: .\products\models.py:66
+msgid "description"
+msgstr "توضیحات"
+
+#: .\products\models.py:69 .\products\models.py:110
+msgid "add date"
+msgstr "تاریخ ثبت"
+
+#: .\products\models.py:70
+msgid "release date"
+msgstr "تاریخ عرضه"
+
+#: .\products\models.py:73
+#: .\products\templates\product_module\products.html:23
+msgid "discount"
+msgstr "تخفیف"
+
+#: .\products\models.py:74 .\products\models.py:109
+msgid "author"
+msgstr "نویسنده"
+
+#: .\products\models.py:102 .\site_module\models.py:87
+msgid "products"
+msgstr "محصولات"
+
+#: .\products\models.py:108
+msgid "parent comment"
+msgstr "کامنت مرجع"
+
+#: .\products\models.py:111
+msgid "comment"
+msgstr "نظرات"
+
+#: .\products\models.py:112
+msgid "confirm by admin"
+msgstr "تایید توسط ادمین"
+
+#: .\products\models.py:118
+msgid "product comment"
+msgstr "کامنت محصول"
+
+#: .\products\models.py:119
+msgid "product comments"
+msgstr "کامنت های محصولات"
+
+#: .\products\models.py:124
+msgid "user ip"
+msgstr "ای پی کاربر"
+
+#: .\products\models.py:125
+msgid "user id"
+msgstr "آیدی کاربر"
+
+#: .\products\models.py:128 .\products\models.py:129
+msgid "visits"
+msgstr "بازدید ها"
+
+#: .\products\models.py:134
+msgid "gallery image"
+msgstr "گالری"
+
+#: .\products\models.py:137 .\products\models.py:138
+msgid "product gallery"
+msgstr "گالری محصول"
+
+#: .\products\templates\product_module\include\card.html:9
+msgid "Free-To-Play"
+msgstr "رایگان"
+
+#: .\products\templates\product_module\include\card.html:13
+#: .\products\templates\product_module\include\card.html:21
+msgid "Pre-order"
+msgstr "پیش خرید"
+
+#: .\products\templates\product_module\include\comment.html:6
+#: .\products\templates\product_module\include\product_comment_partial.html:4
+msgid "Comments"
+msgstr "نظرات"
+
+#: .\products\templates\product_module\include\comment.html:14
+#: .\products\templates\product_module\include\product_comment_partial.html:10
+msgid "Write your comment"
+msgstr "کامنت خود را بنویسید"
+
+#: .\products\templates\product_module\include\comment.html:22
+#: .\products\templates\product_module\include\product_comment_partial.html:18
+msgid "Sign in"
+msgstr "لطفا وارد"
+
+#: .\products\templates\product_module\include\comment.html:23
+msgid "first to write comment"
+msgstr "شوید تا نظر خود را بنویسید"
+
+#: .\products\templates\product_module\include\comment.html:31
+#: .\products\templates\product_module\include\comment.html:59
+#: .\products\templates\product_module\include\product_comment_partial.html:25
+#: .\products\templates\product_module\include\product_comment_partial.html:52
+msgid "Reply"
+msgstr "ریپلای"
+
+#: .\products\templates\product_module\include\comment.html:39
+#: .\products\templates\product_module\include\comment.html:77
+#: .\products\templates\product_module\include\product_comment_partial.html:33
+#: .\products\templates\product_module\include\product_comment_partial.html:70
+msgid "Delete Account"
+msgstr "اکانت حذف شده"
+
+#: .\products\templates\product_module\include\comment.html:56
+#: .\products\templates\product_module\include\product_comment_partial.html:49
+msgid "Reply to this comment"
+msgstr "به این کامنت ریپلای بزنید"
+
+#: .\products\templates\product_module\include\product_comment_partial.html:19
+msgid "to write comment"
+msgstr "نوشتن نظر"
+
+#: .\products\templates\product_module\include\product_gallery.html:6
+msgid "Gallery"
+msgstr "گالری"
+
+#: .\products\templates\product_module\include\single_card.html:34
+msgid "Add to cart"
+msgstr "افزودن به سبد خرید"
+
+#: .\products\templates\product_module\include\single_card.html:42
+msgid "Sold Out :("
+msgstr "اتمام موجودی :("
+
+#: .\products\templates\product_module\include\single_card.html:52
+msgid "Less"
+msgstr "کمتر"
+
+#: .\products\templates\product_module\product_page.html:34
+msgid "Related Products"
+msgstr "محصولات مرتبط"
+
+#: .\products\templates\product_module\products.html:20
+msgid "releaseDate"
+msgstr "تاریخ عرضه"
+
+#: .\products\templates\product_module\products.html:54
+msgid "prev"
+msgstr "قبلی"
+
+#: .\products\templates\product_module\products.html:69
+msgid "next"
+msgstr "بعدی"
+
+#: .\site_module\apps.py:8
+msgid "Site Settings"
+msgstr "تنظیمات سایت"
+
+#: .\site_module\models.py:37
+msgid "main setting"
+msgstr "تنظیمات اصلی"
+
+#: .\site_module\models.py:38
+msgid "site name"
+msgstr "نام سایت"
+
+#: .\site_module\models.py:39
+msgid "site domain"
+msgstr "دامنه سایت"
+
+#: .\site_module\models.py:40
+msgid "site logo"
+msgstr "لوگو سایت"
+
+#: .\site_module\models.py:41
+msgid "site icon"
+msgstr "آیکون سایت"
+
+#: .\site_module\models.py:44
+msgid "main slide show number"
+msgstr "تعداد اسلاید در اسلاید شو اصلی"
+
+#: .\site_module\models.py:45
+msgid "address"
+msgstr "آدرس"
+
+#: .\site_module\models.py:46
+msgid "phone number"
+msgstr "شماره تلفن همراه"
+
+#: .\site_module\models.py:48
+msgid "copyright"
+msgstr "کپی رایت"
+
+#: .\site_module\models.py:49
+msgid "services"
+msgstr "سرویس ها"
+
+#: .\site_module\models.py:50
+msgid "about us"
+msgstr "درباره سایت"
+
+#: .\site_module\models.py:51
+msgid "preload icon"
+msgstr "آیکون پری لود"
+
+#: .\site_module\models.py:53
+msgid "home image"
+msgstr "عکس صفحه اصلی"
+
+#: .\site_module\models.py:54
+msgid "default user profile"
+msgstr "عکس پیش فرض کاربر"
+
+#: .\site_module\models.py:55
+msgid "account page image"
+msgstr "عکس صفحه ورود/ثبت نام"
+
+#: .\site_module\models.py:57
+msgid "contact us page image"
+msgstr "عکس صفحه ارتباط با ما"
+
+#: .\site_module\models.py:60 .\site_module\models.py:63
+#: .\site_module\models.py:66 .\site_module\models.py:69
+msgid "social media icon"
+msgstr "آیکون شبکه اجتماعی"
+
+#: .\site_module\models.py:62 .\site_module\models.py:65
+#: .\site_module\models.py:68 .\site_module\models.py:71
+msgid "social media above link"
+msgstr "لینک شبکه اجتماعی بالا"
+
+#: .\site_module\models.py:74
+msgid "site setting"
+msgstr "تنظیمات سایت"
+
+#: .\site_module\models.py:75
+msgid "site settings"
+msgstr "تنظیمات سایت"
+
+#: .\site_module\models.py:89
+msgid "if you choose all products not matter"
+msgstr "در صورت انتخاب تمامی محصولات, محصولات انتخابی لحاظ نمی گردد"
+
+#: .\site_module\models.py:91
+msgid "choose all products"
+msgstr "انتخاب تمامی محصولات"
+
+#: .\site_module\models.py:93 .\site_module\models.py:109
+msgid "order by"
+msgstr "مرتب سازی بر اساس"
+
+#: .\site_module\models.py:95
+msgid "choose class"
+msgstr "انتخاب کلاس"
+
+#: .\site_module\models.py:98 .\site_module\models.py:99
+msgid "main slide show"
+msgstr "اسلاید شو اصلی"
+
+#: .\site_module\models.py:110
+msgid "show order"
+msgstr "ترتیب نمایش"
+
+#: .\site_module\models.py:113
+msgid "if you choose parent category, category not matter"
+msgstr "اگر از دسته بندی مادر استفاده کنید, دسته بندی لحاظ نمی گردد"
+
+#: .\site_module\models.py:120
+msgid "slide show"
+msgstr "اسلاید شو"
+
+#: .\site_module\models.py:121
+msgid "slide shows"
+msgstr "اسلاید شو ها"
+
+#: .\site_module\templates\site_module\about_us.html:3
+#: .\templates\include\footer_partial.html:49
+msgid "About"
+msgstr "درباره"
+
+#: .\site_module\templates\site_module\about_us.html:7
+msgid "About Us"
+msgstr "درباره"
+
+#: .\site_module\templates\site_module\service.html:4
+#: .\site_module\templates\site_module\service.html:8
+#: .\templates\include\footer_partial.html:50
+msgid "Services"
+msgstr "سرویس ها"
+
+#: .\templates\email\activate_account.html:3
+msgid "active account"
+msgstr "اکانت فعال"
+
+#: .\templates\email\activate_account.html:5
+#: .\templates\email\reset_password.html:5
+msgid "please click on below link"
+msgstr "لطفا روی لینک زیر کلیک کنید"
+
+#: .\templates\email\reset_password.html:3
+msgid "change password"
+msgstr "تغییر رمز عبور"
+
+#: .\templates\email\response.html:3
+msgid "game store answer"
+msgstr "پاسخ پشتیبانی سایت فروشگاه بازی"
+
+#: .\templates\email\response.html:4
+msgid "your message :"
+msgstr "پیام شما"
+
+#: .\templates\include\footer_partial.html:48
+#: .\templates\include\header_partial.html:21
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\include\footer_partial.html:51
+msgid "Contact"
+msgstr "ارتباط با ما"
+
+#: .\templates\include\header\category_header.html:7
+#: .\templates\include\header\category_header.html:48
+msgid "Category"
+msgstr "دسته بندی"
+
+#: .\templates\include\header\dynamic_search_fa.html:24
+#: .\templates\include\header\dynamic_search_result.html:25
+#: .\templates\include\header\dynamic_search_result.html:53
+msgid "Not Found"
+msgstr "پیدا نشد"
+
+#: .\templates\include\header\profile_header.html:9
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:9
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\templates\include\header\profile_header.html:16
+msgid "Admin"
+msgstr "ادمین"
+
+#: .\templates\include\header\profile_header.html:23
+msgid "Admin Panel"
+msgstr "پنل ادمین"
+
+#: .\templates\include\header\profile_header.html:34
+#: .\user_panel\templates\user_panel\cart.html:6
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:19
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: .\templates\include\header\profile_header.html:38
+msgid "Sign Out"
+msgstr "خروج"
+
+#: .\templates\include\header\profile_header.html:51
+msgid "Activation"
+msgstr "فعالسازی"
+
+#: .\templates\include\header_partial.html:42
+msgid "Search here ..."
+msgstr "جستجو کنید..."
+
+#: .\templates\include\header_partial.html:46
+msgid "Go"
+msgstr "برو"
+
+#: .\user_panel\forms.py:17
+msgid "first name"
+msgstr "نام"
+
+#: .\user_panel\forms.py:21
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: .\user_panel\forms.py:48
+msgid "First Name"
+msgstr "نام"
+
+#: .\user_panel\forms.py:49 .\user_panel\templates\user_panel\profile.html:58
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: .\user_panel\forms.py:50 .\user_panel\templates\user_panel\profile.html:62
+msgid "Telephone"
+msgstr "شماره تلفن ثابت"
+
+#: .\user_panel\forms.py:64
+msgid "Current Password"
+msgstr "رمز عبور فعلی"
+
+#: .\user_panel\forms.py:74
+msgid "New Password"
+msgstr "رمز عبور جدید"
+
+#: .\user_panel\templates\user_panel\cart.html:27
+msgid "Update Cart"
+msgstr "بروز رسانی سبد"
+
+#: .\user_panel\templates\user_panel\edit_profile.html:6
+#: .\user_panel\templates\user_panel\edit_profile.html:27
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:12
+msgid "Edit Profile"
+msgstr "ویرایش پروفایل"
+
+#: .\user_panel\templates\user_panel\edit_profile.html:60
+msgid "Upload"
+msgstr "آپلود"
+
+#: .\user_panel\templates\user_panel\edit_profile.html:74
+#: .\user_panel\templates\user_panel\profile.html:50
+msgid "Information"
+msgstr "اطلاعات"
+
+#: .\user_panel\templates\user_panel\edit_profile.html:100
+msgid "Update profile"
+msgstr "بروز رسانی پروفایل"
+
+#: .\user_panel\templates\user_panel\include\product_in_cart.html:35
+msgid "Total Price"
+msgstr "قیمت کل"
+
+#: .\user_panel\templates\user_panel\include\product_in_cart.html:37
+msgid "Purchase"
+msgstr "پرداخت"
+
+#: .\user_panel\templates\user_panel\include\product_in_cart.html:43
+msgid "Your cart is empty"
+msgstr "سبد خرید شما خالی است"
+
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:5
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:16
+msgid "Change Password"
+msgstr "تغییر رمز عبور"
+
+#: .\user_panel\templates\user_panel\include\user_panel_dashboard.html:23
+#: .\user_panel\templates\user_panel\previous_purchases.html:9
+msgid "Previous Purchase"
+msgstr "خرید های قبلی"
+
+#: .\user_panel\templates\user_panel\payment_result.html:8
+msgid "payment is successful. Tracking Code is:"
+msgstr "پرداخت موفقیت آمیز بود. کد رهگیری:"
+
+#: .\user_panel\templates\user_panel\previous_purchases.html:54
+msgid "No Previous Purchase"
+msgstr "خرید قبلی وجود ندارد"
+
+#: .\user_panel\templates\user_panel\profile.html:24
+msgid "My Profile"
+msgstr "پروفایل"
+
+#: .\user_panel\templates\user_panel\profile.html:54
+msgid "First name"
+msgstr "نام"
+
+#: .\user_panel\templates\user_panel\profile.html:66
+msgid "Phone"
+msgstr "تلفن همراه"
+
+#: .\user_panel\views.py:116
+msgid "current password is wrong!"
+msgstr "رمز فعلی اشتباه است"
+
+#~ msgid "gallery"
+#~ msgstr "گالری"
+
+#~ msgid "visible after admin confirmation"
+#~ msgstr "نیازمند تایید توسط ادمین"
+
+#, fuzzy
+#~ msgid "user_id"
+#~ msgstr "نام کاربری"
+
+#, fuzzy
+#~ msgid "show comment after confirm by admin"
+#~ msgstr "تایید توسط ادمین"
+
+#~ msgid "writer"
+#~ msgstr "نویسنده"

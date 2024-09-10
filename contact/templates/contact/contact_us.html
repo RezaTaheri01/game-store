@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}Contact us{% endblock %}
+{% block css %}
+        <link rel="stylesheet" href="{% static 'django5_gamestore/css/contact_us.css' %}">
+{% endblock %}
+{% block body %}
+    <hr class="my-5 hr">
+    {#    form   #}
+    <div class="d-xl-flex justify-content-between container">
+        <div class="d-flex justify-content-center mx-5 contact-image-div">
+            <img src="{% static 'django5_gamestore/Images/account/support.svg' %}" alt="contact image" class="contact-image">
+        </div>
+        <div class="col-lg-12 d-flex d-xl-block justify-content-center">
+            <form id="contact-form" action="{% url 'contact_page' %}" method="POST"
+                  class="d-flex flex-column col-xl-4 justify-content-center col-9">
+                {% csrf_token %}
+                <h2 class="text-center fw-lighter">{% trans 'Contact us' %}</h2>
+
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+
+                <!-- Subject input -->
+                <div class="form-outline mb-4">
+                    {{ form.subject }}
+                    {{ form.subject.errors }}
+                </div>
+
+                <!-- Message input -->
+                <div class="form-outline mb-3">
+                    {{ form.message }}
+                    {{ form.message.errors }}
+                </div>
+
+                <!-- Submit button -->
+                <button id="submit-form" type="submit" class="btn btn-primary btn-block mb-4">
+                    {% trans 'Send' %}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

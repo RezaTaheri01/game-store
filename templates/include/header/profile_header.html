@@ -1,0 +1,55 @@
+{% load i18n %}
+{# Profile #}
+<li class="nav-item dropdown rounded-3" id="profile">
+    <a class="nav-link dropdown-toggle rounded-3" href="#" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false" onclick="close_category()">
+        {% if request.user.is_authenticated %}
+            <i class="fa fa-circle" id="user-circle"></i>
+        {% endif %}
+        {% trans 'Profile' %}
+    </a>
+    <ul class="dropdown-menu" id="profile-menu">
+        {% if request.user.is_authenticated %} {# way better :) #}
+            {#                            {% if session %}#}
+            {% if request.user.is_superuser %}
+                <p class="bg-info-subtle text-warning-emphasis text-center rounded-top-2 m-0">
+                    {% trans 'Admin' %}</p>
+                <li class="text-center"><a class="dropdown-item rounded-bottom-2"
+                                           href="{% url 'admin:index' %}" target="_blank"><i
+                        class="fa fa-user me-2"></i>{{ request.user.username }}</a>
+                </li>
+                <li class="text-center"><a class="dropdown-item rounded-bottom-2"
+                                           href="{% url 'admin_dashboard' %}" target="_blank"><i
+                        class="fa fa-user me-2"></i>{% trans 'Admin Panel' %}</a>
+                </li>
+            {% else %}
+                <p class="bg-info-subtle text-info-emphasis text-center rounded-top-2 m-0">{% trans 'User' %}</p>
+                <li class="text-center"><a class="dropdown-item rounded-bottom-2"
+                                           href="{% url 'profile_page' %}" target="_blank"><i
+                        class="fa fa-user me-2"></i>{{ request.user.username }}</a>
+                </li>
+            {% endif %}
+            <li class="text-center"><a class="dropdown-item rounded-bottom-2"
+                                       href="{% url 'cart_page' %}"><i
+                    class="fa fa-shopping-cart me-2"></i>{% trans 'Cart' %}</a>
+            </li>
+            <li class="text-center"><a class="dropdown-item rounded-bottom-2"
+                                       href="{% url 'sign_out_page' %}" target="_blank"><i
+                    class="fa fa-sign-out me-2"></i>{% trans 'Sign Out' %}</a>
+            </li>
+        {% else %}
+            <li class="text-center"><a class="dropdown-item rounded-2"
+                                       href="{% url 'register_page' %}"><i
+                    class="fa fa-add me-2"></i>{% trans 'Register' %}</a>
+            </li>
+            <li class="text-center"><a class="dropdown-item rounded-2"
+                                       href="{% url 'sign_in_page' %}"><i
+                    class="fa fa-sign-in me-2"></i>{% trans 'Sign In' %}</a>
+            </li>
+            <li class="text-center"><a class="dropdown-item rounded-2"
+                                       href="{% url 'active_account_page' %}"><i
+                    class="fa fa-toggle-on me-2"></i>{% trans 'Activation' %}</a>
+            </li>
+        {% endif %}
+    </ul>
+</li>

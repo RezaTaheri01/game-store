@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load i18n %}
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/asset/swiper/swiper-bundle.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'django5_gamestore/library/light_box_2/light_box.css' %}"/>
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/single_product.css' %}">
+{% endblock %}
+
+{% block body %}
+    {#  product section  #}
+    {% include 'product_module/include/single_card.html' %}
+    {#  end product section  #}
+
+    {#  product gallery  #}
+    {% if product_gallery %}
+        {% include 'product_module/include/product_gallery.html' %}
+    {% endif %}
+    {#  end product gallery  #}
+
+    {# author section #}
+    {#    {% include 'include/author.html' %}#}
+    {# end author section #}
+
+    {#    related products   #}
+    {% if related_products %}
+        <div class="slide-container swiper pt-0"> {#  remove ltr fix #}
+{#        <div class="slide-container swiper pt-0" dir="ltr">#}
+            <div class="slide-content swiper-0">
+                {# <P>{{ forloop.counter }}</P> #}
+                <h1 class="text-center fw-light">{% trans 'Related Products' %}</h1>
+                <div class="card-wrapper swiper-wrapper">
+                    {% for product in related_products %}
+                        {# it's not good to query in template !#}
+                        {% include 'home/include/slide_show_product.html' with product=product %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-button-next-0 swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev-0 swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination-0 swiper-pagination"></div>
+        </div>
+        <hr>
+    {% endif %}
+    {#    end related products   #}
+
+    {#    comment section    #}
+    {% include 'product_module/include/comment.html' with comments=comments %}
+    {#   end comment section    #}
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'django5_gamestore/asset/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'django5_gamestore/library/light_box_2/light_box.js' %}"></script>
+    <script src="{% static 'django5_gamestore/js/single_product.js' %}"></script>
+{% endblock %}

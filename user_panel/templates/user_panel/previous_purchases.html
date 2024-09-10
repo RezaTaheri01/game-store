@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load humanize %}
+{% load thumbnail %}
+{% load poll_extras %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Previous Purchase' %}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/profile.css' %}">
+{% endblock %}
+
+{% block body %}
+    <hr class="hr mt-0 mt-md-5">
+    <hr class="hr mt-0">
+    <hr class="hr mt-md-4">
+    <div class="d-md-flex justify-content-md-around mt-5 justify-content-center">
+        {#    dashboard   #}
+        <div class="col-lg-4 d-flex justify-content-md-start justify-content-center">
+            {% include 'user_panel/include/user_panel_dashboard.html' %}
+        </div>
+        {# end dashboard #}
+        <div id="cart-section" class="col-md-8">
+            {% for cart in user_carts %}
+                <div>
+                    <h5 class="text-center fw-light {% if forloop.counter0 != 0 %}mt-5{% endif %}">{{ cart.payment_date|jalali_date_custom }}</h5>
+                    {% if cart.cartdetail_set.all %}
+                        {% for cart_detail in cart.cartdetail_set.all %}
+                            <div class="card col-9 d-sm-flex flex-sm-row align-items-center mx-auto mb-3" id="outer">
+                                <a href="{% url 'product_page' slug=cart_detail.product.slug %}"
+                                   class="text-decoration-none">
+                                    <div class="img-div rounded-2">
+                                        {% thumbnail cart_detail.product.image "500x175" as img %}
+                                            <img class="card-image" src="{{ img.url }}" alt="Card image cap" loading="lazy">
+                                        {% endthumbnail %}
+                                    </div>
+                                </a>
+                                <div class="card-body fw-light py-0 my-0 col-12">
+                                    <h5 class="card-title mt-md-0 mt-2">{{ cart_detail.product.title }}</h5>
+                                    <label for="product_count"></label>
+                                    <h2 class="fw-light">{{ cart_detail.product_count }}</h2>
+                                    <p class="card-text float-end total-price">{{ cart_detail.total_price|int_comma }}
+                                        $</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="container">
+                            <div class="col-md-12">
+                                <div class="alert alert-info">
+                                    <p class="fw-light my-0">{% trans 'No Previous Purchase' %}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

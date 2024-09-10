@@ -1,0 +1,62 @@
+{% load render_partial %} {# 1 load #}
+{% load i18n %} {# for multilanguages #}
+{% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+{#<html lang="en" data-bs-theme="dark" dir="{% if LANGUAGE_CODE == 'fa-ir' %}rtl{% else %}ltr{% endif %}">#}
+<html lang="en" data-bs-theme="dark" dir="{% if '/fa/' in  request.path %}rtl{% else %}ltr{% endif %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Python, Django">
+    <meta name="author" content="aghReza">
+    <meta name="description" content="Welcome, This is an experimental site that i used to learn Django :)"/>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block css %}{% endblock %}
+    {% include 'include/cssLink.html' %}
+    {% render_partial 'django5_gamestore.views.logo_partial' %}
+</head>
+
+<body>
+{#<body onload="dark_light()">#}
+{#    preloader #}
+{% render_partial 'django5_gamestore.views.preload_partial' %}
+
+<div id="body-layout" class="d-none d-flex flex-column justify-content-between">
+    {#header#}
+    {#    {% include 'include/header_partial.html' %} #}
+    {#instead#}
+    {# {% render_partial 'header_partial'%} {# done security low#}
+    <div id="header-layout">
+        {% render_partial 'django5_gamestore.views.header_partial' %} {# done 2#}
+    </div>
+
+    {#content#}
+    <div id="content-block">
+        {% block body %}
+
+        {% endblock %}
+    </div>
+
+    {# zarinpal logo #}
+    {#    <div id="zarinpal" class="w-100 sticky-bottom">#}
+    {#        <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>#}
+    {#    </div>#}
+    {# end zarinpal logo #}
+
+    {#footer#}
+    <div id="footer-layout">
+        {% render_partial 'django5_gamestore.views.footer_partial' %} {# done 3#}
+    </div>
+
+</div>
+
+</body>
+
+{% include 'include/jsLink.html' %}
+{% block js %}{% endblock %}
+
+</html>

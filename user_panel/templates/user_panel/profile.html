@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load i18n %}
+{% block title %}Profile{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/profile.css' %}">
+{% endblock %}
+
+{% block body %}
+    <hr class="hr mt-5">
+    <hr class="hr mt-3 mt-md-0">
+    <div class="d-md-flex align-items-baseline">
+        {#    dashboard   #}
+        <div class="col-lg-4 d-flex justify-content-md-start justify-content-center">
+            {% include 'user_panel/include/user_panel_dashboard.html' %}
+        </div>
+        {# end dashboard #}
+        <div class="container col-md-8">
+            <div class="row">
+                <!-- Page title -->
+                <div class="d-flex align-items-center">
+                    <h3 class="fw-lighter">{% trans 'My Profile' %}</h3>
+                </div>
+                <hr class="p-0 mb-3">
+                <!-- Form START -->
+                <form class="file-upload">
+                    <div class="row mb-3 gx-5">
+                        {# <!-- Upload profile -->#}
+                        <div class="col-xxl-4 mb-1 mb-md-0">
+                            <div class="rounded">
+                                <div class="row">
+                                    <div class="text-center">
+                                        <!-- Image upload -->
+                                        <div class="square position-relative display-2 mb-3">
+                                            {% thumbnail user.profile_image "500x500" as profile_img %}
+                                                <img src="{{ profile_img.url }}" alt="profile picture" class="rounded-2"
+                                                     id="profileImage">
+                                            {% endthumbnail %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Contact detail -->
+                        <div class="col-xxl-8 mb-2 mb-xxl-0">
+                            <div class="bg-secondary-soft px-4 py-3 rounded">
+                                <div class="row g-3">
+                                    <h4 class="my-2 fw-light">{% trans 'Information' %}</h4>
+                                    <hr>
+                                    <!-- First Name -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'First name' %} : {{ user.first_name }}</h6>
+                                    </div>
+                                    <!-- Last name -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'Last Name' %} : {{ user.last_name }}</h6>
+                                    </div>
+                                    <!-- Phone number -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'Telephone' %} : {{ user.telephone_number }}</h6>
+                                    </div>
+                                    <!-- Mobile number -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'Phone' %} : {{ user.phone_number }}</h6>
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'Email' %} : {{ user.email }}</h6>
+                                    </div>
+                                    <!-- Address -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-light">{% trans 'Address' %} : {{ user.address }}</h6>
+                                    </div>
+                                </div> <!-- Row END -->
+                            </div>
+                        </div>
+                    </div> <!-- Row END -->
+                    <!-- Row END -->
+                    <hr class="mt-5 hr">
+                </form> <!-- Form END -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

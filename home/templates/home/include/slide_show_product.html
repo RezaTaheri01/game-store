@@ -1,0 +1,29 @@
+{% load i18n %}
+{% if product %}
+    {% load thumbnail %}
+    <div class="card swiper-slide border-0">
+        <div class="image-content py-0">
+            <a href="{{ product.get_absolute_url }}">
+                {% thumbnail product.image "820x440" crop='center' as image %}
+                    <img src="{{ image.url }}" class="card-img-top rounded-1"
+                         alt="{{ product.title }}_Course_Img" {% if count != 1 %}loading="lazy" {% endif %}>
+                {% endthumbnail %}</a>
+            <div class="card-content position-absolute d-flex align-items-start
+                {% if '/fa/' in  request.path %}end-0{% else %}start-0{% endif %}">
+                <h5 class="fw-lighter bg-dark p-2 rounded-2 opacity-75">{{ product.title }}</h5>
+                {# sold out #}
+                {% if product.inventory == 0 %}
+                    <h6 class="fw-lighter bg-dark p-2 rounded-2 opacity-75">
+                        {% trans 'Sold Out' %}</h6>
+                {% elif  product.discount %}
+                    <h6 class="fw-light bg-dark p-1 rounded-2 opacity-75 text-start">
+                        {{ product.discount }}% {% trans 'Discount' %} </h6>
+                {% endif %}
+                {% if product.releaseDate|date:"Y-m-d" > today_date %}
+                    <h6 class="fw-light bg-dark p-1 px-2 rounded-2 opacity-75 text-start">
+                        {% trans 'Pre Order' %}</h6>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

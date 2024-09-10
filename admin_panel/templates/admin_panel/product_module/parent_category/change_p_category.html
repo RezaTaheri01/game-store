@@ -1,0 +1,46 @@
+{% extends 'admin_panel/shared/admin_layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Change Product Category
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-top bordered-warning">
+                    <span class="widget-caption">Change {{ parentcategory.title }}</span>
+                </div>
+                <div class="widget-body">
+                    <div class="">
+                        <form action="{% url 'admin_change_p_category' pk=parentcategory.id %}" method="post"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <label for="id_{{ field.name }}">{{ field.label }}</label>
+                                    {% render_field field class='form-control w-50' %}
+                                    <div>
+                                        <ul>
+                                            {% for error in field.errors %}
+                                                <li class="text-danger">{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-warning btn-block">Change</button>
+                                    <a href="{% url 'admin_delete_p_category' pk=parentcategory.id %}"
+                                       class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

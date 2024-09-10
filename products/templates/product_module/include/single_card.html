@@ -1,0 +1,56 @@
+{% load static %}
+{% load thumbnail %}
+{% load humanize %}
+{% load poll_extras %}
+{% load i18n %}
+
+<div class=" text-center" id="outer">
+    <div class="img-div background">
+        {% if product.image_bg %}
+            {% thumbnail product.image_bg "2400x950" crop='center' as image_bg %}
+                <img src="{{ image_bg.url }}" class="card-img-top" {# url at the end of address #}
+                     alt="{{ product.title }}" id="bg-img">
+            {% endthumbnail %}
+        {% endif %}
+    </div>
+    <div class="card" id="inner">
+        <div class="card-body">
+            <div>
+                <h4 class="card-title fw-bold">{{ product.title }}</h4>
+                {# add product to cart #}
+                {% if product.inventory != 0 %}
+
+                    <div class="d-flex justify-content-around align-items-baseline">
+                        <div class="card-title">
+                            {% if product.current_price == product.price %}
+                                <h5 class="fw-light">{{ product.price|int_comma }}</h5>
+                            {% else %}
+                                <strike class="fw-bold"><h5 class="fw-light">{{ product.price|int_comma }}</h5></strike>
+                                <h5 class="fw-light">{{ product.current_price|int_comma }}</h5>
+                            {% endif %}
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn fw-lighter text-white" onclick="addProductToCart({{ product.id }})">
+                                {% trans 'Add to cart' %}
+                            </button>
+                            <input type="number" min="1" max="{{ product.inventory }}" value="1" class="form-control"
+                                   style="width: 75px;" id="product-count">
+                        </div>
+                    </div>
+
+                {% else %}
+                    <h5 class="card-title fw-light short">{% trans 'Sold Out :(' %}</h5>
+                {% endif %}
+                {# end add product to cart #}
+            </div>
+            <hr>
+            <p class="card-text {% if '/fa/' in request.path %}text-end{% else %}text-start{% endif %}"
+               id="short-des">{{ product.description|safe|truncatechars:150 }}</p>
+            <p class="card-text {% if '/fa/' in request.path %}text-end{% else %}text-start{% endif %}"
+               id="full-des">{{ product.description|safe }}</p>
+            <a onclick="showMore()" class="btn btn-transparent text-white" id="more-btn">{% trans 'More' %}</a>
+            <a onclick="showMore()" class="btn btn-transparent text-white" id="less-btn">{% trans 'Less' %}</a>
+        </div>
+    </div>
+</div>
+

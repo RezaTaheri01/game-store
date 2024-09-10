@@ -1,0 +1,47 @@
+{% load humanize %}
+{% load thumbnail %}
+{% load poll_extras %}
+{% load i18n %}
+{% if cart.cartdetail_set.all %}
+    {% for cart_detail in cart.cartdetail_set.all %}
+        <div class="card d-sm-flex flex-sm-row align-items-center mx-auto mb-3" id="outer">
+            <a href="{% url 'product_page' slug=cart_detail.product.slug %}" class="text-decoration-none">
+                <div class="img-div rounded-2">
+                {% if cart_detail.product.discount != 0%}
+                    <h6 class="fw-lighter position-absolute top-0 product-discount rounded bg-dark opacity-75 p-2">{{ cart_detail.product.discount }}%</h6>
+                {% endif %}
+                    {% thumbnail cart_detail.product.image "500x175" as img %}
+                        <img class="card-image" src="{{ img.url }}" alt="Card image cap">
+                    {% endthumbnail %}
+                </div>
+            </a>
+            <div class="card-body fw-light py-0 col-12">
+                <a class="float-md-end text-danger text-end d-block" onclick="deleteFromCart({{ cart_detail.id }})"><i
+                        class="fa fa-remove"></i></a>
+                <h5 class="card-title">{{ cart_detail.product.title }}</h5>
+                <label for="product_count"></label>
+                <div class="d-flex align-items-center">
+                    <input type="number" min="1" max="{{ cart_detail.product.inventory }}"
+                           value="{{ cart_detail.product_count }}" class="form-control clearfix"
+                           oninput="waitForUpdateCart(this,{{ cart_detail.product.id }},{{ cart_detail.product.inventory }})">
+                    <h3 class="fw-light mt-1 ms-3">{{ cart_detail.product_count }}</h3>
+                </div>
+                <p class="card-text float-end total-price">{{ cart_detail.total_price|int_comma }} $</p>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="card w-50 my-5 mx-auto fw-light rounded-2 border-0" id="purchase-section">
+        <ul class="list-group list-group-flush rounded-2 rounded-bottom-0 px-0">
+            <li class="list-group-item float-end">{% trans 'Total Price' %} : {{ sum|int_comma }}</li>
+        </ul>
+        <a class="btn fw-light rounded-top-0 border-0" href="{% url 'request_payment' %}">{% trans 'Purchase' %}</a>
+    </div>
+{% else %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                <p class="fw-light my-0">{% trans 'Your cart is empty' %}</p>
+            </div>
+        </div>
+    </div>
+{% endif %}

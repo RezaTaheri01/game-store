@@ -1,0 +1,27 @@
+{% load thumbnail %}
+{%  load i18n %}
+<div class="slide-container swiper pt-0">
+    <div class="slide-content swiper-1">
+        {# <P>{{ forloop.counter }}</P> #}
+        <h1 class="text-center fw-light">{% trans 'Gallery' %}</h1>
+        <div class="card-wrapper swiper-wrapper">
+            {% for gallery in product_gallery %}
+                <div class="card swiper-slide border-0 bg-transparent">
+                    <div class="image-content py-0">
+                        <a href="{{ gallery.image.url }}" data-lightbox="same" data-title="{{ product.title }}"
+                           class="gallery-image">
+                            {% thumbnail gallery.image "820x440" crop='center' as g %}
+                                <img src="{{ g.url }}" class="hover-shadow rounded-2 mx-1 col-3 w-100"
+                                     alt="" loading="lazy">
+                            {% endthumbnail %}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="swiper-button-next-1 swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev-1 swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination-1 swiper-pagination"></div>
+</div>
+<hr>

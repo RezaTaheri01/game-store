@@ -1,0 +1,69 @@
+{% load i18n %}
+<!-- footer section -->
+{#<div class="my-auto">#}
+{#    <footer class="container-fluid d-flex justify-content-around align-items-center footer" id="footer">#}
+{#        <a href="#clicked"><i class="fas fa-phone fa-2x text-warning"></i></a>#}
+{#        <a href="#clicked"><i class="fab fa-twitter fa-2x text-warning"></i></a>#}
+{#        <a href="#clicked"><i class="fab fa-telegram fa-2x text-warning"></i></a>#}
+{#    </footer>#}
+{#</div>#}
+<!-- end footer section -->
+<footer class="footer py-0">
+    <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="p-0 social-icon">
+        {% if site_setting.social_1_icon %}
+            <li class="social-icon__item"><a class="social-icon__link" href="{{ site_setting.social_1 }}" target="_blank">
+                <img src="{{ site_setting.social_1_icon.url }}" alt="" class="">
+            </a></li>
+        {% endif %}
+        <li class="social-icon__item"><a class="social-icon__link" href="{{ site_setting.social_2 }}" target="_blank">
+            {% if site_setting.social_2_icon %}
+                <img src="{{ site_setting.social_2_icon.url }}" alt="" class="">
+            {% else %}
+                <i class="fab fa-github"></i>
+            {% endif %}
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="{{ site_setting.social_3 }}" target="_blank">
+            {% if site_setting.social_3_icon %}
+                <img src="{{ site_setting.social_1_icon.url }}" alt="" class="">
+            {% else %}
+                <i class="fab fa-linkedin"></i>
+            {% endif %}
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="{{ site_setting.social_4 }}" target="_blank">
+            {% if site_setting.social_4_icon %}
+                <img src="{{ site_setting.social_4_icon.url }}" alt="" class="">
+            {% else %}
+                <i class="fab fa-telegram"></i>
+
+            {% endif %}
+        </a></li>
+    </ul>
+    <ul class="p-0 menu d-flex justify-content-center">
+        <li class="menu__item"><a class="menu__link" href="{% url 'home-page' %}">{% trans 'Home' %}</a></li>
+        <li class="menu__item"><a class="menu__link" href="{% url 'about_page' %}">{% trans 'About' %}</a></li>
+        <li class="menu__item"><a class="menu__link" href="{% url 'service_page' %}">{% trans 'Services' %}</a></li>
+        <li class="menu__item"><a class="menu__link" href="{% url 'contact_page' %}">{% trans 'Contact' %}</a></li>
+    </ul>
+    <ul class="p-0 menu d-flex justify-content-center">
+        <li class="menu__item"><a class="menu__link" target="_blank" href="{% url 'memory_management' %}">Memory</a></li>
+        <li class="menu__item"><a class="menu__link" target="_blank"  href="{% url 'first_follow' %}">First Follow</a></li>
+        <li class="menu__item"><a class="menu__link" target="_blank"  href="{% url 'chain_rules' %}">Chain Rules</a></li>
+    </ul>
+    <div class="d-flex justify-content-center ">
+        <button onclick="changeLanguage(this)" class="btn btn-dark fw-lighter px-3 py-0 mb-1">
+            {% if '/fa/' in request.path %}en
+            {% else %}fa{% endif %}
+        </button>
+    </div>
+    <div class="">
+        <p class="d-flex justify-content-center my-0">&copy {{ site_setting.copy_right }}</p>
+    </div>
+</footer>
+
+

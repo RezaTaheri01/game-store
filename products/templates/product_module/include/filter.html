@@ -1,0 +1,42 @@
+{% load humanize %}
+{% load i18n %}
+{#{% load poll_extras %}#}
+<div class="d-flex justify-content-center" dir="ltr">
+    <div class="wrapper p-0 h-25 col-sm-6 col-md-5 col-lg-4 col-9">
+        <form action="" class="h-25" method="get" id="filter-form"> {# when action empty send value to current page #}
+            <div class="price-input">
+                <div class="field">
+                    <label for="input-min"></label>
+                    <input type="hidden" class="input-min fw-light" name="start_price" id="input-min" hidden>
+                    <p id="min-value" class="fw-light p-0 my-0 ms-md-5 ms-0">{{ start_price|intcomma }}</p>
+                </div>
+                <div class="field">
+                    <label for="input-max"></label>
+                    <input type="hidden" class="input-max fw-light" name="end_price" id="input-max" hidden>
+                    <p id="max-value" class="fw-light p-0 my-0">{{ end_price|intcomma }}</p>
+                </div>
+                <input type="hidden" name="page" value="1" id="page">
+                <input type="hidden" name="order_by"
+                       value="" id="order-by">
+                <div class="field">
+                    <button type="button" onclick="SubmitFilterForm()"
+                            class="text-decoration-none fw-light ms-5 btn btn-primary text-white">{% trans 'Submit' %}
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="slider">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <label for="range-min" hidden></label>
+            <label for="range-max" hidden></label>
+            <input type="range" class="range-min" id="range-min" min="{{ min_price }}" max="{{ max_price }}"
+                   value="{{ start_price }}"
+                   step="100000">
+            <input type="range" class="range-max" id="range-max" min="{{ min_price }}" max="{{ max_price }}"
+                   value="{{ end_price }}"
+                   step="100000">
+        </div>
+    </div>
+</div>

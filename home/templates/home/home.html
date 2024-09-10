@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/asset/swiper/swiper-bundle.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/slide_show/slide_show.css' %}">
+{% endblock %}
+
+{% block body %}
+    {#   main slide show   #}
+    {% include 'home/include/main_slide_show.html' %}
+    {# end main slide show #}
+
+    {#    home icon   #}
+    <div class="d-flex justify-content-center align-items-center">
+        {% if home_img %}
+            <img src="{{ home_img.url }}" alt="" class="w-50" id="img-home" loading="lazy">
+        {% endif %}
+    </div>
+    {#    end home icon   #}
+
+    {#   slide show  #}
+    {% include 'home/include/slide_show.html' %}
+    {# end slide show  #}
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'django5_gamestore/asset/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'django5_gamestore/js/slide_show/slide_show.js' %}"></script>
+{% endblock %}

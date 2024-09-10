@@ -1,0 +1,87 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory Management</title>
+    <link rel="stylesheet" href="{% static 'django5_gamestore/MM/assets/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'django5_gamestore/MM/style.css' %}">
+</head>
+
+<body onload="getMemorySize()">
+<header>
+    <h1 class="text-center fw-bold text-light text-muted">Basic Memory Management</h1>
+</header>
+
+<hr>
+
+<main class="container-fluid">
+    <div id="status" class="me-3 fw-lighter text-center"></div>
+    <select id="visual" name="choose_visual" class="form-control mb-2 text-center mx-auto" oninput="drawMemory()"
+            value="Stable">
+        <option value="Stable">Stable</option>
+        <option value="Beta">Beta</option>
+    </select>
+
+    <div class="d-flex">
+        <!-- Table And Input Section -->
+        <section class="left-side d-flex justify-content-center align-content-start flex-wrap">
+
+            <div class="form w-50">
+                <!-- Choose Method -->
+                <label for="method">Method</label>
+                <select id="method" name="Management Method" class="form-control mb-2">
+                    <option value="First">First Fit</option>
+                    <option value="Next">Next Fit</option>
+                    <option value="Best">Best Fit</option>
+                    <option value="Worst">Worst Fit</option>
+                </select>
+                <!-- End Choose Method -->
+                <label for="size">Size(k)</label>
+                <input type="number" id="size" name="program_size" placeholder="size" min="1"
+                       class="form-control mb-2" value="4">
+                <button type="button" class="btn btn-success w-100" onclick="manageMethods()">Add</button>
+            </div>
+
+            <!-- detail table -->
+            <div class="table-responsive col-12 mt-2">
+                <table class="table table-hover table-striped table-bordered" id="detail-table">
+                    <tr class="sticky-top">
+                        <th>Program</th>
+                        <th>Size(K)</th>
+                        <th>Waste(K)</th>
+                        <th>Cell(s)</th>
+                    </tr>
+                    <tr class="program-number scroll-tr">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+
+        </section>
+        <!-- End Table And Input Section -->
+        <!-- Memory Section -->
+        <section class="right-side rounded text-center d-flex justify-content-center">
+            <div class="memory" id="memory">
+            </div>
+        </section>
+        <!-- End Memory Section -->
+    </div>
+</main>
+
+<footer></footer>
+
+</body>
+<script src="{% static 'django5_gamestore/MM/assets/jquery.min.js' %}"></script>
+<script src="{% static 'django5_gamestore/MM/assets/bootstrap.min.js' %}"></script>
+<script src="{% static 'django5_gamestore/MM/assets/sweetalert2@11.js' %}"></script>
+<script src="{% static 'django5_gamestore/MM/script.js' %}"></script>
+
+</html>

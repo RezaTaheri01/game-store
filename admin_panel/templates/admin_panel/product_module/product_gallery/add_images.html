@@ -1,0 +1,33 @@
+{% extends 'admin_panel/shared/admin_layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Add Images To Gallery
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-top bordered-warning">
+                    <span class="widget-caption">New Gallery Images</span>
+                </div>
+                <div class="widget-body">
+                    <div class="">
+                        <form action="{% url 'add_product_gallery'%}" method="post"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="image" multiple="multiple" class="form-control" accept=".png, .jpg, .jpeg">
+                            <input type="text" name="key" value="{{ pk }}" hidden>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-success btn-block">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

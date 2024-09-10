@@ -1,0 +1,27 @@
+{% load thumbnail %}
+{% load i18n %}
+{% if products %}
+    {% for product in products %}
+        <li class="text-center">
+            <a href="{{ product.get_absolute_url_fa }}"
+               class="text-decoration-none w-100 rounded m-0 p-0 text-center">
+                <div class="d-flex align-items-center">
+                    <div class="image-div">
+                        {% thumbnail product.image "500x500" as image %}
+                            <img src="{{ image.url }}" alt="">
+                        {% endthumbnail %}
+                    </div>
+                    <div class="text-center w-100">
+                        <h6 class="fw-lighter">{{ product.title }}</h6>
+                    </div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+{% else %}
+    <li class="text-center">
+        <div class="text-center w-100">
+            <h6 class="fw-lighter">{% trans 'Not Found' %}</h6>
+        </div>
+    </li>
+{% endif %}

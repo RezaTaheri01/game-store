@@ -1,0 +1,17 @@
+{% load poll_extras %}
+{% load thumbnail %}
+<div class="card d-flex flex-row" id="author_card">
+    <div class="card-image">
+        {% if product.author.profile_image %}
+            {% thumbnail product.author.profile_image "600x600" as img %}
+                <img src="{{ img.url }}" alt="" class="rounded-2 img-fluid">
+            {% endthumbnail %}
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <h6 class="card-title fw-lighter">Author : {{ product.author }} <small
+                class="float-end">{{ product.addDate|jalali_date_custom }}</small></h6>
+        <hr>
+        <p class="card-text">{{ product.author.about_user }}</p>
+    </div>
+</div>

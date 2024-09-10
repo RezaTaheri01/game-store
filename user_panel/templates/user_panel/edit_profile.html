@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'Edit Profile' %}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'django5_gamestore/css/profile.css' %}">
+{% endblock %}
+
+{% block body %}
+    <hr class="hr mt-5">
+    <hr class="hr mt-0 mt-md-5">
+    <hr class="hr edit-profile-hr">
+    <div class="d-md-flex align-items-baseline">
+        {#    dashboard   #}
+        <div class="col-lg-4 d-flex justify-content-md-start justify-content-center">
+            {% include 'user_panel/include/user_panel_dashboard.html' %}
+        </div>
+        {# end dashboard #}
+        <div class="container col-md-8">
+            <div class="row">
+                <!-- Page title -->
+                <div class="d-flex align-items-center">
+                    <h3 class="fw-light">
+                        {% trans 'Edit Profile' %}
+                    </h3>
+                </div>
+                <hr class="p-0 mb-3">
+                <!-- Form START -->
+                <form class="file-upload" action="{% url 'edit_profile_page' %}" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row mb-3 gx-5">
+                        {#<!-- Upload profile -->#}
+                        <div class="col-xxl-4 mb-1 mb-md-0">
+                            <div class="rounded">
+                                <div class="row g-3">
+                                    {#                                <h4 class="mb-0 mt-0 text-center">Upload your profile photo</h4>#}
+                                    <div class="text-center">
+                                        <!-- Image upload -->
+                                        <div class="square position-relative display-2 mb-3">
+                                            {% if user.profile_image %}
+                                                {% thumbnail user.profile_image "500x500" as p_im %}
+                                                    <img src="{{ p_im.url }}"
+                                                         alt="" class="w-100 rounded-2" id="profileImage"
+                                                         style="width: 250px;height: 248px">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img src=""
+                                                     alt="" class="w-100 rounded-2" id="profileImage"
+                                                     style="width: 250px;height: 248px">
+                                            {% endif %}
+                                        </div>
+                                        <!-- Button -->
+                                        {#                                    {{<input type="file" id="customFile" name="file" hidden="">}}#}
+                                        {#                                    {{ profile_form.profile_image }}#}
+                                        <label class="btn btn-success-soft btn-block"
+                                               for="profileImageInput">{% trans 'Upload' %}</label>
+                                        {{ form.profile_image }}
+                                        {#                                    <button type="button" class="btn btn-danger-soft">Remove#}
+                                        {#                                    </button>#}
+                                        <!-- Content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact detail -->
+                        <div class="col-xxl-8 mb-2 mb-xxl-0">
+                            <div class="bg-secondary-soft px-4 py-3 rounded">
+                                <div class="row g-3">
+                                    <h4 class="my-2 fw-light">{% trans 'Information' %}</h4>
+                                    <hr>
+                                    <!-- First Name -->
+                                    <div class="col-md-6">
+                                        {{ form.first_name.label }}
+                                        {{ form.first_name }}
+                                    </div>
+                                    <!-- Last name -->
+                                    <div class="col-md-6">
+                                        {{ form.last_name.label }}
+                                        {{ form.last_name }}
+                                    </div>
+                                    <!-- Phone number -->
+                                    <div class="col-md-6">
+                                        {{ form.telephone_number.label }}
+                                        {{ form.telephone_number }}
+                                    </div>
+                                    <!-- Address -->
+                                    <div class="col-md-6">
+                                        {{ form.address.label }}
+                                        {{ form.address }}
+                                    </div>
+                                </div> <!-- Row END -->
+                            </div>
+                            <button type="submit"
+                                    class="btn btn-success rounded btn-md fw-lighter mt-3">
+                                {% trans 'Update profile' %}
+                            </button>
+                        </div>
+                    </div> <!-- Row END -->
+                    <!-- Row END -->
+                    <!-- button -->
+                    <hr class="mt-5 hr">
+                </form> <!-- Form END -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#profileImage').attr('src', e.target.result).width(250).height(250);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+{% endblock %}
