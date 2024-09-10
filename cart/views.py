@@ -71,7 +71,7 @@ amount = 10000  # Rial / Required
 description = "Payment"  # Required
 email = 'GameStorePersia@gmail.com'  # Optional
 mobile = ''  # Optional
-# . todo : Important: need to edit for deployment
+# . todo : Important: edit for deployment
 site_domainsite_domain = ''
 site_domain = 'http://reza-taheri.ir'
 # CallbackURL = site_domain + '/fa/cart/verify-payment/'
