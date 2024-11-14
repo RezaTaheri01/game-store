@@ -1,10 +1,12 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import reverse, render
 
 from products.models import ParentParentCategory
 from site_module.models import SiteSetting
 
 # home page
+
+
 def reDirect(request):
     reDirect_link = reverse('home-page')
     return HttpResponseRedirect(reDirect_link)
@@ -42,3 +44,28 @@ def preload_partial(request):
     return render(request, 'include/preload_partial.html', context={
         'site_setting': site_setting
     })
+
+
+def nostr_view(request):
+    name = request.GET.get('name', '')
+
+    # response
+    if name == "":
+        response_data = {
+            "error": "name parameter is missing"
+        }
+    elif name == "aghReza":
+        response_data = {
+            "names": {
+                "aghReza": "b9c298ef367ab133e18b711e31ca3fde7bceed28e02aba00ca75269085e179b9"
+            },
+            # "relays": {
+            #     "b9c298ef367ab133e18b711e31ca3fde7bceed28e02aba00ca75269085e179b9": ["wss://nos.lol/", "wss://relay.snort.social/"]
+            # }
+        }
+    else:
+        response_data = {
+            "error": "name is not known"
+        }
+
+    return JsonResponse(response_data)

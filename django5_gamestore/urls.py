@@ -40,6 +40,8 @@ urlpatterns = [
     # send token in header Bearer <token>
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # noster jadi NIP-05
+    path('.well-known/nostr.json', views.nostr_view, name='nostr_json'),
 ]
 
 urlpatterns += i18n_patterns(
