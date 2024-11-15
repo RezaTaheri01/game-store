@@ -1,3 +1,5 @@
+# Remove: email
+# change: secret key
 """
 Django settings for django5_gamestore project.
 
