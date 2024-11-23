@@ -1,5 +1,3 @@
-# Remove: email
-# change: secret key
 """
 Django settings for django5_gamestore project.
 
@@ -22,11 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4+&$062z0ak*vw*8706*e*4!y76dbra5y+*4gis%0_)uo^$0^2'
+SECRET_KEY = 'f%8rgo%@!a82-2(t%l&10$#n54e&gar7jml_@!9rt$)f&13cwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = []
+
 # DEBUG = False
 # ALLOWED_HOSTS = ["*"]
 
@@ -36,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',  # needed for sessions default expire date(2 weeks)
+    # needed for sessions default, expire in 2 weeks
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
@@ -138,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGES = [
-    ('fa', 'فارسی'), # Persian
+    ('fa', 'فارسی'),  # Persian
     ('en', 'English')
 ]
 
@@ -169,7 +169,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = '/medias/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),  # needed to search main file(not apps)
+    os.path.join(BASE_DIR, "static"),  # search main file (not apps)
     BASE_DIR / "static"
 )
 STATIC_ROOT = BASE_DIR / 'static_cdn'
@@ -185,8 +185,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'GameStorePersia@gmail.com' # Your email
-EMAIL_HOST_PASSWORD = 'igdvffwibhiqxjuo' # Your App Password
+EMAIL_HOST_USER = 'Your-Email@gmail.com'  # Your email
+EMAIL_HOST_PASSWORD = 'Your-Password'  # Your App Password
 EMAIL_PORT = 587
 
 # set payment getaway
@@ -220,17 +220,17 @@ JALALI_DATE_DEFAULTS = {
     },
 }
 
-# reCaptcha Google
+# reCaptcha Google (not used)
 RECAPTCHA_PUBLIC_KEY = ''
 RECAPTCHA_PRIVATE_KEY = ''
 RECAPTCHA_DOMAIN = 'www.reza-taheri.ir'
 
-# captcha (Current)
+# captcha (current)
 CAPTCHA_FONT_SIZE = 50
 CAPTCHA_IMAGE_SIZE = (160, 60)
 CAPTCHA_2X_IMAGE = False
 # CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge' characters
-CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge' # numbers
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'  # numbers
 # CAPTCHA_FOREGROUND_COLOR = '#ffffff'
 # CAPTCHA_BACKGROUND_COLOR = '#2a2b33'
 
