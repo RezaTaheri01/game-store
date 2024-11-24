@@ -16,7 +16,8 @@ def header_partial(request):
     site_setting = SiteSetting.objects.filter(is_main_setting=True).first()
     # category = ProductCategory.objects.filter(is_active=True, is_delete=False)
     parent_parent = ParentParentCategory.objects.filter(is_active=True, is_delete=False).prefetch_related(
-        "parentcategory_set", "parentcategory_set__productcategory_set")  # not sure but it may perform fine :)
+        "parentcategory_set", "parentcategory_set__productcategory_set")  # not sure but it may perform better :)
+
     return render(request, 'include/header_partial.html', context={
         # 'category': category,
         'main_category': parent_parent,
@@ -46,6 +47,7 @@ def preload_partial(request):
     })
 
 
+# not related to website
 def nostr_view(request):
     name = request.GET.get('name', '')
 
