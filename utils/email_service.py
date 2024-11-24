@@ -3,18 +3,17 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 import threading
-from threading import Thread
+# from threading import Thread
 
 
-# # mass_mail for multi-group
-
-# todo: change to async method that not broke server when it's failed
+# mass_mail for multi-group
 def send_email(subject, to, template_name, context=None):
     try:
         html_message = render_to_string(template_name, context)
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
-        send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+        send_mail(subject, plain_message, from_email,
+                  [to], html_message=html_message)
     except:
         return True
 
@@ -27,7 +26,8 @@ class EmailThread(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        msg = EmailMessage(self.subject, self.html_content, settings.EMAIL_HOST_USER, self.recipient_list)
+        msg = EmailMessage(self.subject, self.html_content,
+                           settings.EMAIL_HOST_USER, self.recipient_list)
         msg.content_subtype = "html"
         msg.send()
 
@@ -35,6 +35,7 @@ class EmailThread(threading.Thread):
 def send_email_api(subject, to, template_name, context=None):
     try:
         html_message = render_to_string(template_name, context)
-        EmailThread(subject=subject, html_content=html_message, recipient_list=[to]).start()
+        EmailThread(subject=subject, html_content=html_message,
+                    recipient_list=[to]).start()
     except:
         pass
