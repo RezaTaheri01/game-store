@@ -27,8 +27,6 @@ from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
-
-#  todo : rebuild this panel : Done :)
 @method_decorator(login_required, name='dispatch')
 class ProfileView(TemplateView):
     template_name = 'user_panel/profile.html'
@@ -50,7 +48,8 @@ class EditProfilePageView(View):
         #     'profile_image': current_user.profile_image,
         # })
         try:
-            default_profile = SiteSetting.objects.filter(is_main_setting=True).first().user_img
+            default_profile = SiteSetting.objects.filter(
+                is_main_setting=True).first().user_img
         except:
             default_profile = None
 
@@ -64,14 +63,16 @@ class EditProfilePageView(View):
 
     def post(self, request: HttpRequest):
         current_user = User.objects.filter(id=request.user.id).first()
-        edit_form = EditProfileModelForm(request.POST, request.FILES, instance=current_user)
+        edit_form = EditProfileModelForm(
+            request.POST, request.FILES, instance=current_user)
 
         if edit_form.is_valid():
             edit_form.save()
             return redirect('profile_page')
         else:
             try:
-                default_profile = SiteSetting.objects.filter(is_main_setting=True).first().user_img
+                default_profile = SiteSetting.objects.filter(
+                    is_main_setting=True).first().user_img
             except:
                 default_profile = None
             context = {
@@ -102,7 +103,8 @@ class ResetPasswordPanelView(View):
     def post(self, request: HttpRequest):
         reset_password_form = ResetPasswordInPanelForm(request.POST)
         if reset_password_form.is_valid():
-            current_user: User = User.objects.filter(id=request.user.id).first()
+            current_user: User = User.objects.filter(
+                id=request.user.id).first()
             if current_user is not None:
                 if current_user.check_password(reset_password_form.cleaned_data.get('current_password')):
                     logout(request)  # that's it :)
@@ -113,7 +115,8 @@ class ResetPasswordPanelView(View):
                     # request.session['sign_in'] = False  # create sign in session
                     return redirect('sign_in_page')
                 else:
-                    reset_password_form.add_error('current_password', _('current password is wrong!'))
+                    reset_password_form.add_error(
+                        'current_password', _('current password is wrong!'))
             else:
                 reset_password_form.add_error('password', _('not founded'))
         context = {
@@ -164,7 +167,8 @@ def user_cart_remove(request: HttpRequest):
         'cart': userCart,
         'sum': total_amount
     }
-    cart_new_body = render_to_string('user_panel/include/product_in_cart.html', context=context)
+    cart_new_body = render_to_string(
+        'user_panel/include/product_in_cart.html', context=context)
     translation.deactivate()
     return JsonResponse({
         'status': 'success',
@@ -188,7 +192,8 @@ def user_cart_count(request: HttpRequest):
     product.product_count = product_count
     product.save()
 
-    userCart = Cart.objects.prefetch_related('cartdetail_set').filter(is_paid=False, user_id=request.user.id).first()
+    userCart = Cart.objects.prefetch_related('cartdetail_set').filter(
+        is_paid=False, user_id=request.user.id).first()
     total_amount = userCart.cal_total_price()
     if '/fa/' in current_url:
         translation.activate('fa')
@@ -196,7 +201,8 @@ def user_cart_count(request: HttpRequest):
         'cart': userCart,
         'sum': total_amount
     }
-    cart_new_body = render_to_string('user_panel/include/product_in_cart.html', context=context)
+    cart_new_body = render_to_string(
+        'user_panel/include/product_in_cart.html', context=context)
     translation.deactivate()
     return JsonResponse({
         'status': 'success',
@@ -212,7 +218,8 @@ class PreviousPurchasesView(ListView):
 
     def get_queryset(self):
         query = super(PreviousPurchasesView, self).get_queryset()
-        user_carts = query.filter(user_id=self.request.user.id, is_paid=True).order_by('-payment_date')
+        user_carts = query.filter(
+            user_id=self.request.user.id, is_paid=True).order_by('-payment_date')
         return user_carts
 
 
@@ -251,10 +258,12 @@ class ProfileGenericApiView(generics.RetrieveUpdateDestroyAPIView):
             user_id = self.kwargs.get('pk')
             if curr_user_id != user_id:
                 return Response(None, status=status.HTTP_400_BAD_REQUEST)
-            current_user = User.objects.filter(pk=user_id, is_active=True).first()
+            current_user = User.objects.filter(
+                pk=user_id, is_active=True).first()
             partial = kwargs.pop('partial', False)
             instance = self.get_object()
-            serializer = self.get_serializer(instance, data=request.data, partial=partial)
+            serializer = self.get_serializer(
+                instance, data=request.data, partial=partial)
             serializer.is_valid(raise_exception=True)
             data = serializer.validated_data
 
