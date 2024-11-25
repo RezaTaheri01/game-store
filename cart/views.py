@@ -69,7 +69,7 @@ ZP_API_VERIFY = "https://api.zarinpal.com/pg/v4/payment/verify.json"
 ZP_API_START_PAY = "https://www.zarinpal.com/pg/StartPay/{authority}"
 amount = 10000  # Rial / Required
 description = "Payment"  # Required
-email = 'GameStorePersia@gmail.com'  # Optional
+email = 'Your-Email@gmail.com'  # Optional
 mobile = ''  # Optional
 # . todo : Important: edit for deployment
 site_domainsite_domain = ''
