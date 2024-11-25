@@ -9,7 +9,8 @@ from account.models import User
 class EditProfileModelForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'telephone_number', 'profile_image', 'address']  # show all fields
+        fields = ['first_name', 'last_name', 'telephone_number',
+                  'profile_image', 'address']  # show all fields
         # exclude = ['response', 'is_read_by_admin', 'upload']  # not show response
         widgets = {
             'first_name': forms.TextInput(attrs={
