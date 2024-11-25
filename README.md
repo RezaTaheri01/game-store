@@ -73,10 +73,10 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Access the site at http://localhost:8000<br>
-Django Admin at http://localhost:8000/admin<br>
-Rosetta at http://localhost:8000/rosetta<br>
-Api at http://localhost:8000/api/schema/swagger<br>
+Access the site at http://127.0.0.1:8000/<br>
+Django Admin at http://127.0.0.1:8000/admin<br>
+Rosetta at http://127.0.0.1:8000/rosetta<br>
+Api at http://127.0.0.1:8000/api/schema/swagger<br>
 
 ## Configuration
 
