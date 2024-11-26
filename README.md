@@ -1,11 +1,12 @@
 * * *
 
-
 # Game Store Website
 
-This repository hosts the source code of [reza-taheri.ir](https://reza-taheri.ir)(temporary unavailable) a website built using Django, The site serves as a gaming store.
+Welcome to the source code of [reza-taheri.ir](https://reza-taheri.ir) (currently temporarily unavailable), a **Django**-based website serving as an **eCommerce gaming store**. Explore a fully functional, customizable platform for purchasing games.
 
 ![Prince of Persia](https://github.com/user-attachments/assets/adc80554-142e-46a8-a94a-1a7534d25ad1)
+
+---
 
 ## Table of Contents
 
@@ -13,28 +14,35 @@ This repository hosts the source code of [reza-taheri.ir](https://reza-taheri.ir
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [License](#license)
+
+---
 
 ## Features
 
-- eCommerce stores with all functionalities
-- Restful 
-- Contact form for reaching out directly
-- Fully responsive design
-- Multi language support
-- Dark mode
-- Customizability
-- Button in footer to change language
+- 🛒 **Fully Functional eCommerce Store**: All essential store features.
+- 🔗 **RESTful API**: Clean and efficient API for smooth integration.
+- 📩 **Contact Form**: Reach out directly through the contact form.
+- 🌐 **Fully Responsive Design**: Optimized for mobile, tablet, and desktop views.
+- 🌍 **Multi-language Support**: Easy localization using Django’s translation tools.
+- 🌙 **Dark Mode**: A sleek dark theme for night-time browsing.
+- ⚙️ **Customizable**: Highly configurable for specific needs.
+- 🌐 **Language Switcher**: Quick language change from the footer.
+
+---
 
 ## Technologies
 
-- **Backend:** Django 5.1.1 (Python 3.11)
-- **Frontend:** HTML5, CSS3, JavaScript (jQuery, Bootstrap)
-- **Database:** SQLite (default), MySQL (for production)
-- **Multi language:** Use django.utils.translation and rosetta
+- **Backend**: Django 5.1.1 with Python 3.11
+- **Frontend**: HTML5, CSS3, JavaScript (jQuery, Bootstrap)
+- **Database**: SQLite (default) for development, MySQL for production
+- **Multi-language Support**: Integrated via `django.utils.translation` and **Rosetta** for translations
+
+---
 
 ## Installation
 
-### 1. Clone the repository:
+### 1. Clone the Repository:
 
 ```bash
 git clone https://github.com/RezaTaheri01/game-store.git
