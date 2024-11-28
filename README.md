@@ -96,6 +96,10 @@ Api at http://127.0.0.1:8000/api/schema/swagger (use superuser user and password
 - **EMAIL_HOST_USER**: SMTP username
 - **EMAIL_HOST_PASSWORD**: SMTP password
 
+## ✅ Todo
+
+- [ ] Customizable theme colors
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/RezaTaheri01/game-store/edit/main/LICENSE) file for details.
