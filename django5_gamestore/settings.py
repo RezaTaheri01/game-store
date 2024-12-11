@@ -180,7 +180,6 @@ STATIC_ROOT = BASE_DIR / 'static_cdn'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Todo: remove email and password
 # set Email :
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
