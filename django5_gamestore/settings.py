@@ -58,10 +58,10 @@ INSTALLED_APPS = [
     'sorl.thumbnail',  # change image size
     'jalali_date',
     'widget_tweaks',
-    'rosetta',
+    # 'rosetta',
     'modeltranslation',
     'captcha',
-    'django_recaptcha',
+    # 'django_recaptcha',
     # DRF
     'rest_framework',
     # jwt

@@ -54,7 +54,7 @@ urlpatterns += i18n_patterns(
     path('user/', include('user_panel.urls')),
     path('cart/', include('cart.urls')),
     path('admin-panel/', include('admin_panel.urls')),
-    path('rosetta/', include('rosetta.urls')),  # python .\manage.py makemessages -l fa_IR --ignore venv
+    # path('rosetta/', include('rosetta.urls')),  # python .\manage.py makemessages -l fa_IR --ignore venv
     path('', include('site_module.urls')),
     path('', views.reDirect),
     prefix_default_language=False
