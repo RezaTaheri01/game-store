@@ -58,7 +58,7 @@ function getCookie() {
 }
 
 function setCookie(value) {
-    document.cookie = value + "; expires=Thu, 18 Dec 2024 12:00:00 UTC; path=/; SameSite=lax"
+    document.cookie = value + "; expires=Thu, 18 Dec 2030 12:00:00 UTC; path=/; SameSite=lax"
 }
 
 function DelCookie(value) {
