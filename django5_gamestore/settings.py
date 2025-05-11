@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     "corsheaders",
     'drf_spectacular',
+    # graphQL
+    'graphene_django',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
