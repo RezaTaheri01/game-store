@@ -3,6 +3,11 @@ from django.contrib.auth.hashers import make_password
 from account.models import User
 
 
+class UserIDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id']
+
 class UserSerializer(serializers.ModelSerializer):
     @staticmethod
     def validate_password(password: str) -> str:

@@ -18,7 +18,7 @@ from .forms import EditProfileModelForm, ResetPasswordInPanelForm
 from utils.email_service import send_email_api
 
 from rest_framework.response import Response
-from .serializer import UserSerializer, EmailSerializer
+from .serializer import UserSerializer, EmailSerializer, UserIDSerializer
 # DRF Generics
 from rest_framework import generics, status
 # DRF Auth
@@ -225,7 +225,7 @@ class PreviousPurchasesView(ListView):
 
 # region DRF
 class CurrentUserGenericApiView(generics.ListAPIView):
-    serializer_class = UserSerializer
+    serializer_class = UserIDSerializer
 
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
