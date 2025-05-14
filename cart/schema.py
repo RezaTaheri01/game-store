@@ -2,7 +2,6 @@
 # /user/api/current-user/ # return current user id
 # /user/api/profile/{id}/ # profile base on user id
 # /cart/api/cart/{id}/ # cart base on user id
-# /cart/api/cart/product/{id}/ # each product detail in cart
 
 
 import graphene
@@ -36,7 +35,7 @@ class CartType(DjangoObjectType):
     class Meta:
         model = Cart
         fields = ("id", "is_paid", "payment_date",
-                  "payment_code", "cartdetail_set")
+                  "payment_code", "cartdetail_set", "user")
 
     cartdetail_set = graphene.List(CartDetailType)
 
@@ -46,7 +45,7 @@ class CartType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     my_cart = graphene.Field(CartType)
-    user = graphene.Field(UserType)
+    me = graphene.Field(UserType)
 
     def resolve_my_cart(self, info):
         user = info.context.user
