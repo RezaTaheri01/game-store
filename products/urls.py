@@ -1,11 +1,6 @@
 from django.urls import path
 from . import views
 
-# GraphQL
-from graphene_django.views import GraphQLView
-from django.views.decorators.csrf import csrf_exempt
-from .schema import schema
-
 urlpatterns = [
     # region DRF
     path('api/categories/', views.CategoriesListGenericApiView.as_view(),
@@ -38,10 +33,6 @@ urlpatterns = [
     path('<slug:slug>/', views.ProductView.as_view(), name='product_page'),
     path('<slug:base>/<slug:slug>/',
          views.ProductListView.as_view(), name='products_page'),
-
-
-    # GraphQL
-    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True, schema=schema))),
 ]
 
 # path('order-by/<slug:slug>/', views.ProductListView.as_view(), name='products_page'),
