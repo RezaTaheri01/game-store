@@ -1,4 +1,4 @@
-# http://127.0.0.1:8000/cart/graphql
+# http://127.0.0.1:8000/graphql
 # /user/api/current-user/ # return current user id
 # /user/api/profile/{id}/ # profile base on user id
 # /cart/api/cart/{id}/ # cart base on user id
