@@ -42,6 +42,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # noster jadi NIP-05
     path('.well-known/nostr.json', views.nostr_view, name='nostr_json'),
+    path('graphql/', include('graph_ql.urls')),
 ]
 
 urlpatterns += i18n_patterns(

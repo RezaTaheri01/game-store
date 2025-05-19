@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'user_panel',
     'cart',
     'admin_panel',
+    'graph_ql',
     # external apps:
     'django_render_partial',  # need install package : pip install django-render-partial
     # should go after your apps : delete unused data (images)
